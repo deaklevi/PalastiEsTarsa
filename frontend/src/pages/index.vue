@@ -1,6 +1,6 @@
 <template>
   <BaseLayout>
-    <!--<BaseSlider />-->
+    <BaseSlider class="lg:mt-52"/>
   </BaseLayout>
 </template>
 

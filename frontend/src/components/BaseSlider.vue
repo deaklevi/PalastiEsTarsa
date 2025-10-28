@@ -1,32 +1,19 @@
 <template>
-  <div class="relative w-full max-w-3xl mx-auto overflow-hidden">
+  <div class="absolute lg:relative inset-x-0 w-full max-w-3xl mx-auto overflow-hidden mt-16 lg:mt-0 lg:rounded-md lg:shadow-[0_10px_15px_rgba(0,0,0,0.6)]">
     <!-- Slide képek -->
-    <div class="relative w-full h-64">
+    <div class="relative w-full sm:h-64 h-44">
       <transition-group name="fade" tag="div">
-        <img
-          v-for="(image, index) in images"
-          :key="index"
-          v-show="currentIndex === index"
-          :src="image"
-          class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-        />
+        <img v-for="(image, index) in images" :key="index"
+        v-show="currentIndex === index" :src="image"
+        class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" />
       </transition-group>
     </div>
 
-    <!-- Oldalsó nyilak -->
-    
-
     <!-- Pötty navigáció -->
     <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
-      <button
-        v-for="(image, index) in images"
-        :key="index"
-        @click="goToSlide(index)"
-        :class="[
-          'w-2 h-2 rounded-full',
-          currentIndex === index ? 'bg-white' : 'bg-gray-400'
-        ]"
-      ></button>
+      <button v-for="(image, index) in images" :key="index"
+      @click="goToSlide(index)" :class="['w-3 lg:w-2 lg:h-2 h-3 rounded-full',
+      currentIndex === index ? 'bg-white' : 'bg-gray-400' ]"></button>
     </div>
   </div>
 </template>
@@ -56,7 +43,7 @@ export default {
     startAutoSlide() {
       this.interval = setInterval(() => {
         this.nextSlide()
-      }, 5000) // 5 másodpercenként vált
+      }, 3000) // 5 másodpercenként vált
     },
     nextSlide() {
       this.currentIndex = (this.currentIndex + 1) % this.images.length
