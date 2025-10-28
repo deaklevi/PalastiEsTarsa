@@ -1,7 +1,7 @@
 <template>
   <div class="relative w-full max-w-3xl mx-auto overflow-hidden">
     <!-- Slide képek -->
-    <div class="relative w-full h-64 sm:h-80 md:h-96">
+    <div class="relative w-full h-64">
       <transition-group name="fade" tag="div">
         <img
           v-for="(image, index) in images"
@@ -14,18 +14,7 @@
     </div>
 
     <!-- Oldalsó nyilak -->
-    <button
-      @click="prevSlide"
-      class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50"
-    >
-      ‹
-    </button>
-    <button
-      @click="nextSlide"
-      class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50"
-    >
-      ›
-    </button>
+    
 
     <!-- Pötty navigáció -->
     <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
@@ -34,7 +23,7 @@
         :key="index"
         @click="goToSlide(index)"
         :class="[
-          'w-3 h-3 rounded-full',
+          'w-2 h-2 rounded-full',
           currentIndex === index ? 'bg-white' : 'bg-gray-400'
         ]"
       ></button>
@@ -47,11 +36,11 @@ export default {
   data() {
     return {
       images: [
-        'https://picsum.photos/id/1018/1000/600',
-        'https://picsum.photos/id/1015/1000/600',
-        'https://picsum.photos/id/1019/1000/600',
-        'https://picsum.photos/id/1020/1000/600',
-        'https://picsum.photos/id/1021/1000/600'
+        "../../public/Slider/slider_img_1.jpg",
+        "../../public/Slider/slider_img_2.jpg",
+        "../../public/Slider/slider_img_3.jpg",
+        "../../public/Slider/slider_img_4.jpg",
+        "../../public/Slider/slider_img_5.jpg",
       ],
       currentIndex: 0,
       interval: null
@@ -67,7 +56,7 @@ export default {
     startAutoSlide() {
       this.interval = setInterval(() => {
         this.nextSlide()
-      }, 4000) // 4 másodpercenként vált
+      }, 5000) // 5 másodpercenként vált
     },
     nextSlide() {
       this.currentIndex = (this.currentIndex + 1) % this.images.length

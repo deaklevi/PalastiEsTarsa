@@ -1,7 +1,7 @@
 <template>
   <nav class="fixed lg:static w-full bg-slate-950 flex justify-between items-center px-5 py-2">
     <RouterLink :to="{name: 'home'}">
-      <img src="/BaseHeader/logo feher.png" alt="Logo" class="h-12">
+      <img src="/Header/logo feher.png" alt="Logo" class="h-12">
     </RouterLink>
 
     <!-- Linkek (nagy nézet) -->

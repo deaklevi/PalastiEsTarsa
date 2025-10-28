@@ -1,6 +1,6 @@
 <template>
   <BaseLayout>
-    <BaseSlider />
+    <!--<BaseSlider />-->
   </BaseLayout>
 </template>
 
