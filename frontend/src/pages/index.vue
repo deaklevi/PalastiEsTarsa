@@ -12,3 +12,13 @@ export default {
   }
 }
 </script>
+
+<route lang="json">
+{
+  "name": "home",
+  "meta": {
+    "title": "Főoldal – Palásti és Társa Kft.",
+    "description": "Palásti és Társa Kft. hivatalos weboldala –"
+  }
+}
+</route>
