@@ -1,14 +1,17 @@
 <template>
   <BaseLayout>
+    <BaseSlider />
   </BaseLayout>
 </template>
 
 <script>
 import BaseLayout from '@layouts/BaseLayout.vue'
+import BaseSlider from '@components/BaseSlider.vue';
 
 export default {
   components: {
-    BaseLayout
+    BaseLayout,
+    BaseSlider
   }
 }
 </script>
