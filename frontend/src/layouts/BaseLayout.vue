@@ -1,6 +1,6 @@
 <template>
   <BaseHeader />
-  <main class="w-full">
+  <main class="">
     <slot />
   </main>
 </template>
