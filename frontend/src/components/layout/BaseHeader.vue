@@ -1,5 +1,5 @@
 <template>
-  <nav class="w-full bg-slate-950 flex justify-between items-center px-5 py-2 z-20">
+  <nav class="absolute w-full bg-slate-950 flex justify-between items-center px-5 py-2 z-20">
     <RouterLink :to="{name: 'home'}">
       <img src="/Header/logo feher.png" alt="Logo" class="h-12">
     </RouterLink>

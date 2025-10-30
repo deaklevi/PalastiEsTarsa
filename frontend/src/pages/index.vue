@@ -1,14 +1,18 @@
 <template>
   <BaseLayout>
+    <BaseSlider class="mt-16 min-[772px]:mt-64"/>
   </BaseLayout>
 </template>
 
 <script>
 import BaseLayout from '@layouts/BaseLayout.vue'
+import BaseSlider from '@components/BaseSlider.vue'
 
 export default {
   components: {
-    BaseLayout
+    BaseLayout,
+    BaseSlider
+
   }
 }
 </script>
