@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute inset-x-0 w-full max-w-3xl mx-auto overflow-hidden min-[770px]:shadow-[0_10px_15px_rgba(0,0,0,0.6)] min-[772px]:rounded-md">
+  <div class="relative inset-x-0 w-full max-w-3xl mx-auto overflow-hidden min-[770px]:shadow-[0_10px_15px_rgba(0,0,0,0.6)] min-[772px]:rounded-md">
     <!-- Slide képek -->
     <div class="relative w-full min-[470px]:h-64 h-44">
       <transition-group name="fade" tag="div">

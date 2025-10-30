@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img :src="image" alt="">
+        <img :src="image" :alt="image">
         <p>
             {{ text }}
         </p>
