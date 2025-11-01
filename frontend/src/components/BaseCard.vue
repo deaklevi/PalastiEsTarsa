@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width: 411px) {
+@media (max-width: 412px) {
   .responsive-card {
     width: 100%;
   }
