@@ -26,7 +26,7 @@
     </div>
   </nav>
   <!-- Hamburger linkek (mobil nézet) -->
-  <div class="fixed top-16 left-0 py-5 space-y-5 bg-slate-950 bg-opacity-70 w-full flex flex-col text-white text-center transform transition-all duration-500 ease-out z-10" :class="{'opacity-100 translate-y-0': menuOpen, 'opacity-0 -translate-y-10 pointer-events-none': !menuOpen}">
+  <div class="fixed lg:hidden top-16 left-0 py-5 space-y-5 bg-slate-950 bg-opacity-70 w-full flex flex-col text-white text-center transform transition-all duration-500 ease-out z-10" :class="{'opacity-100 translate-y-0': menuOpen, 'opacity-0 -translate-y-10 pointer-events-none': !menuOpen}">
     <RouterLink to="#">Főoldal</RouterLink>
     <RouterLink to="#">Sírkő</RouterLink>
     <RouterLink to="#">Építészet</RouterLink>
