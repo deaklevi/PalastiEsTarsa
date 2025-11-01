@@ -7,6 +7,7 @@ use App\Http\Requests\StoreUrnaTombstoneRequest;
 use App\Http\Requests\UpdateUrnaTombstoneRequest;
 use App\Http\Resources\UrnaTombstoneResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class UrnaTombstoneController extends Controller
@@ -25,13 +26,20 @@ class UrnaTombstoneController extends Controller
     public function store(StoreUrnaTombstoneRequest $request)
     {
         $data = $request->validated();
+        $newOrder = $data['order'];
 
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('tombstones/urna_tombstones', 'public');
-            $data['image_url'] = asset('storage/' . $path);
-        }
+        DB::transaction(function () use (&$data, $request, $newOrder, &$urnaTombstone) {
+            // Ha már létezik ez az order, növeljük az érintett rekordok orderét
+            UrnaTombstone::where('order', '>=', $newOrder)->increment('order');
 
-        $urnaTombstone = UrnaTombstone::create($data);
+            // Kép feltöltés, ha van
+            if ($request->hasFile('image')) {
+                $path = $request->file('image')->store('tombstones/urna_tombstones', 'public');
+                $data['image_url'] = '/storage/' . $path; // relatív útvonal
+            }
+
+            $urnaTombstone = UrnaTombstone::create($data);
+        });
 
         return new UrnaTombstoneResource($urnaTombstone);
     }
@@ -50,20 +58,29 @@ class UrnaTombstoneController extends Controller
     public function update(UpdateUrnaTombstoneRequest $request, UrnaTombstone $urnaTombstone)
     {
         $data = $request->validated();
+        $newOrder = $data['order'];
 
-        // Ha új kép érkezik, feltöltjük és frissítjük az URL-t
-        if ($request->hasFile('image')) {
-            // Régi kép törlése, ha létezik
-            if ($urnaTombstone->image_url) {
-                $oldPath = str_replace(asset('storage/'), '', $urnaTombstone->image_url);
-                Storage::disk('public')->delete($oldPath);
+        DB::transaction(function () use (&$data, $request, $newOrder, $urnaTombstone) {
+            // Ha változott az order, kezeljük az ütközést
+            if ($newOrder != $urnaTombstone->order) {
+                UrnaTombstone::where('order', '>=', $newOrder)
+                    ->where('id', '!=', $urnaTombstone->id)
+                    ->increment('order');
             }
 
-            $path = $request->file('image')->store('tombstones/urna_tombstones', 'public');
-            $data['image_url'] = asset('storage/' . $path);
-        }
+            // Ha új kép érkezik, feltöltjük és frissítjük az URL-t
+            if ($request->hasFile('image')) {
+                if ($urnaTombstone->image_url) {
+                    $oldPath = str_replace('/storage/', '', $urnaTombstone->image_url);
+                    Storage::disk('public')->delete($oldPath);
+                }
 
-        $urnaTombstone->update($data);
+                $path = $request->file('image')->store('tombstones/urna_tombstones', 'public');
+                $data['image_url'] = '/storage/' . $path; // relatív útvonal
+            }
+
+            $urnaTombstone->update($data);
+        });
 
         return new UrnaTombstoneResource($urnaTombstone);
     }
@@ -73,13 +90,15 @@ class UrnaTombstoneController extends Controller
      */
     public function destroy(UrnaTombstone $urnaTombstone)
     {
-        // Ha van kép, töröljük a storage-ból
-        if ($urnaTombstone->image_url) {
-            $oldPath = str_replace(asset('storage/'), '', $urnaTombstone->image_url);
-            Storage::disk('public')->delete($oldPath);
-        }
+        DB::transaction(function () use ($urnaTombstone) {
+            // Ha van kép, töröljük a storage-ból
+            if ($urnaTombstone->image_url) {
+                $oldPath = str_replace('/storage/', '', $urnaTombstone->image_url);
+                Storage::disk('public')->delete($oldPath);
+            }
 
-        $urnaTombstone->delete();
+            $urnaTombstone->delete();
+        });
 
         return response()->noContent();
     }
