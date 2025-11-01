@@ -2,14 +2,18 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 
 import Vue from '@vitejs/plugin-vue'
-//import VueDevtools from 'vite-plugin-vue-devtools'
 import VueRouter from 'unplugin-vue-router/vite'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [Vue(), VueRouter()],
-  //plugins: [Vue(), VueDevtools(), VueRouter()],
-  server:{
+  plugins: [
+    VueRouter({
+      routesFolder: 'src/pages', // 👈 Ezt MUSZÁJ megadni!
+      extensions: ['.vue'],      // csak .vue fájlokat figyel
+      dts: 'src/typed-router.d.ts' // opcionális, de hasznos (type hint)
+    }),
+    Vue()
+  ],
+  server: {
     host: true,
   },
   resolve: {

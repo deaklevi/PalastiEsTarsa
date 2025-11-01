@@ -6,8 +6,8 @@
 
     <!-- Linkek (nagy nézet) -->
     <div class="text-white text-sm hidden lg:flex space-x-7 items-center">
-      <RouterLink to="#" class="hover:text-orange-600 transition-colors duration-300">Főoldal</RouterLink>
-      <RouterLink to="#" class="hover:text-orange-600 transition-colors duration-300">Sírkő</RouterLink>
+      <RouterLink :to="{name: 'home'}" class="hover:text-orange-600 transition-colors duration-300">Főoldal</RouterLink>
+      <RouterLink :to="{name: 'sirko'}" class="hover:text-orange-600 transition-colors duration-300">Sírkő</RouterLink>
       <RouterLink to="#" class="hover:text-orange-600 transition-colors duration-300">Építészet</RouterLink>
       <RouterLink to="#" class="hover:text-orange-600 transition-colors duration-300">Szolgáltatások</RouterLink>
       <RouterLink to="#" class="hover:text-orange-600 transition-colors duration-300">Kő anyagminták</RouterLink>
@@ -27,8 +27,8 @@
   </nav>
   <!-- Hamburger linkek (mobil nézet) -->
   <div class="fixed lg:hidden top-16 left-0 py-5 space-y-5 bg-slate-950 bg-opacity-70 w-full flex flex-col text-white text-center transform transition-all duration-500 ease-out z-10" :class="{'opacity-100 translate-y-0': menuOpen, 'opacity-0 -translate-y-10 pointer-events-none': !menuOpen}">
-    <RouterLink to="#">Főoldal</RouterLink>
-    <RouterLink to="#">Sírkő</RouterLink>
+    <RouterLink :to="{name: 'home'}">Főoldal</RouterLink>
+    <RouterLink :to="{name: 'sirko'}">Sírkő</RouterLink>
     <RouterLink to="#">Építészet</RouterLink>
     <RouterLink to="#">Szolgáltatások</RouterLink>
     <RouterLink to="#">Kő anyagminták</RouterLink>

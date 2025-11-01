@@ -17,18 +17,21 @@
       </div>
     </div>
   </BaseLayout>
+  <BaseFooter class="mt-24 md:mt-52" />
 </template>
 
 <script>
 import BaseLayout from '@layouts/BaseLayout.vue'
 import BaseSlider from '@components/BaseSlider.vue'
 import BaseInfoCard from '@components/BaseInfoCard.vue'
+import BaseFooter from '@components/layout/BaseFooter.vue'
 
 export default {
   components: {
     BaseLayout,
     BaseSlider,
-    BaseInfoCard
+    BaseInfoCard,
+    BaseFooter
   }
 }
 </script>
@@ -38,7 +41,7 @@ export default {
   "name": "home",
   "meta": {
     "title": "Főoldal – Palásti és Társa Kft.",
-    "description": "Palásti és Társa Kft. hivatalos weboldala –"
+    "description": "Palásti és Társa Kft. hivatalos weboldala"
   }
 }
 </route>
