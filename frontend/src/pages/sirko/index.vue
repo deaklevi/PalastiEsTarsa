@@ -6,16 +6,16 @@
     </div>
     <div class="flex flex-col items-center mx-5 md:mx-12 mb-24 md:mb-52">
       <div class="mt-24 md:mt-52 flex flex-wrap justify-center gap-5 max-w-[1500px]">
-        <BaseCard image="../../public/Sirko/sirko.jpg" title="Urna Sírkő" />
-        <BaseCard image="../../public/Sirko/szimpla-sirko.jpg" title="Szimpla Sírkő" />
-        <BaseCard image="../../public/Sirko/dupla-sirko.jpg" title="Dupla Sírkő" />
-        <BaseCard image="../../public/Sirko/kripta.jpg" title="Kripta" />
-        <BaseCard image="../../public/Sirko/akcios-sirko.jpg" title="Akciós Sírkő" />
-        <BaseCard image="../../public/Sirko/marvany-sirko.jpg" title="Márvány Sírkő" />
-        <BaseCard image="../../public/Sirko/meszko-sirko.jpg" title="Mészkő Sírkő" />
-        <BaseCard image="../../public/Sirko/kulonleges-sirko.jpg" title="Különleges Sírkő" />
-        <BaseCard image="../../public/Sirko/sirko-kellekek.jpg" title="Sírkő kellékek" />
-        <BaseCard image="../../public/Sirko/sirko-keszites.jpg" title="Sírkő készítés" />
+        <BaseTitleCard image="../../public/Sirko/urna-sirko.jpg" title="Urna Sírkő" :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/szimpla-sirko.jpg" title="Szimpla Sírkő"  :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/dupla-sirko.jpg" title="Dupla Sírkő"  :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/kripta.jpg" title="Kripta"  :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/akcios-sirko.jpg" title="Akciós Sírkő"  :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/marvany-sirko.jpg" title="Márvány Sírkő"  :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/meszko-sirko.jpg" title="Mészkő Sírkő"  :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/kulonleges-sirko.jpg" title="Különleges Sírkő"  :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/sirko-kellekek.jpg" title="Sírkő kellékek"  :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/sirko-keszites.jpg" title="Sírkő készítés"  :link="{name: 'urna-sirko'}" />
       </div>
     </div>
   </BaseLayout>
@@ -24,13 +24,13 @@
 <script>
 import BaseLayout from '@layouts/BaseLayout.vue'
 import BaseInfoCard from '@components/BaseInfoCard.vue'
-import BaseCard from '@components/BaseCard.vue'
+import BaseTitleCard from '@components/BaseTitleCard.vue'
 
 export default {
   components: {
     BaseLayout,
     BaseInfoCard,
-    BaseCard
+    BaseTitleCard
   }
 }
 </script>
