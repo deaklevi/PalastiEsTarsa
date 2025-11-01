@@ -18,7 +18,6 @@
                 Hétfő - péntek: 07.30 - 16.30<br>Szombat: 09.00 - 12.00<br>Vasárnap: Zárva
             </p>
         </div>
-        <h3></h3>
     </div>
 </template>
 
