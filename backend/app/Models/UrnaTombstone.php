@@ -16,7 +16,7 @@ class UrnaTombstone extends Model
         "tombstone_id",
         "name",
         "description",
-        "image_name",
+        "image_url",
         "group",
     ];
 }

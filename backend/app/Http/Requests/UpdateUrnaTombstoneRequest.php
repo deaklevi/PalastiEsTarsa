@@ -28,7 +28,7 @@ class UpdateUrnaTombstoneRequest extends FormRequest
             "tombstone_id" => ["required", "string", "max:10"],
             "name" => ["required", "string", "max:50"],
             "description" => ["required", "string"],
-            "image_name" => ["required", "string", "max:25"],
+            "image" => ["nullable", "file", "image", "max:2048"], // ide jön a feltöltött fájl
             "group" => ["nullable", "string", "max:50"],
         ];
     }

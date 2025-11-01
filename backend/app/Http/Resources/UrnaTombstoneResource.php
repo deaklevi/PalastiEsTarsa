@@ -20,7 +20,7 @@ class UrnaTombstoneResource extends JsonResource
             "tombstone_id" => $this->tombstone_id,
             "name" => $this->name,
             "description" => $this->description,
-            "image_name" => $this->image_name,
+            "image_url" => $this->image_url,
             "group" => $this->group,
         ];
     }

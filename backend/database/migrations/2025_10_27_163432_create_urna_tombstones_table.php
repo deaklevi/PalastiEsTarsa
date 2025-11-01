@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("tombstone_id", 10);
             $table->string("name", 50);
             $table->text("description");
-            $table->string("image_name", 25);
+            $table->string("image_url", 255)->nullable();
             $table->string("group", 50)->nullable();
             $table->timestamps();
         });

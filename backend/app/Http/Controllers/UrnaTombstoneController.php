@@ -6,13 +6,13 @@ use App\Models\UrnaTombstone;
 use App\Http\Requests\StoreUrnaTombstoneRequest;
 use App\Http\Requests\UpdateUrnaTombstoneRequest;
 use App\Http\Resources\UrnaTombstoneResource;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UrnaTombstoneController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -21,22 +21,23 @@ class UrnaTombstoneController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreUrnaTombstoneRequest  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(StoreUrnaTombstoneRequest $request)
     {
         $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('tombstones/urna_tombstones', 'public');
+            $data['image_url'] = asset('storage/' . $path);
+        }
+
         $urnaTombstone = UrnaTombstone::create($data);
+
         return new UrnaTombstoneResource($urnaTombstone);
     }
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\UrnaTombstone  $urnaTombstone
-     * @return \Illuminate\Http\Response
      */
     public function show(UrnaTombstone $urnaTombstone)
     {
@@ -45,31 +46,41 @@ class UrnaTombstoneController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateUrnaTombstoneRequest  $request
-     * @param  \App\Models\UrnaTombstone  $urnaTombstone
-     * @return \Illuminate\Http\Response
      */
     public function update(UpdateUrnaTombstoneRequest $request, UrnaTombstone $urnaTombstone)
     {
         $data = $request->validated();
+
+        // Ha új kép érkezik, feltöltjük és frissítjük az URL-t
+        if ($request->hasFile('image')) {
+            // Régi kép törlése, ha létezik
+            if ($urnaTombstone->image_url) {
+                $oldPath = str_replace(asset('storage/'), '', $urnaTombstone->image_url);
+                Storage::disk('public')->delete($oldPath);
+            }
+
+            $path = $request->file('image')->store('tombstones/urna_tombstones', 'public');
+            $data['image_url'] = asset('storage/' . $path);
+        }
+
         $urnaTombstone->update($data);
+
         return new UrnaTombstoneResource($urnaTombstone);
     }
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\UrnaTombstone  $urnaTombstone
-     * @return \Illuminate\Http\Response
      */
     public function destroy(UrnaTombstone $urnaTombstone)
     {
-        if($urnaTombstone->delete()){
-            return response()->noContent();
+        // Ha van kép, töröljük a storage-ból
+        if ($urnaTombstone->image_url) {
+            $oldPath = str_replace(asset('storage/'), '', $urnaTombstone->image_url);
+            Storage::disk('public')->delete($oldPath);
         }
-        else {
-            return abort(500);
-        }
+
+        $urnaTombstone->delete();
+
+        return response()->noContent();
     }
 }
