@@ -3,15 +3,30 @@
     <div class="flex flex-col items-center md:mx-12">
       <h2 class="mt-5 md:mt-10 text-xl font-bold w-full text-center md:text-left">Urna sírkő 4. csoport</h2>
     </div>
+    <div class="flex flex-col items-center mx-5 md:mx-12 mb-24 md:mb-52">
+      <div class="mt-5 md:mt-10 flex flex-wrap justify-center gap-5 max-w-[1500px]">
+        <BaseProductCard v-for="item in urnaGroup4" :key="item.order" :item="item" />
+      </div>
+    </div>
   </BaseLayout>
 </template>
 
 <script>
 import BaseLayout from '@layouts/BaseLayout.vue'
+import BaseProductCard from '@components/BaseProductCard.vue'
+import { mapState } from 'pinia'
+import { useUrnaTombstone } from '@stores/UrnaTombstone.mjs'
 
 export default {
   components: {
-    BaseLayout
+    BaseLayout,
+    BaseProductCard
+  },
+  computed: {
+    ...mapState(useUrnaTombstone, ["urnaTombstones"]),
+    urnaGroup4() {
+    return this.urnaTombstones.filter(item => item.group === "Urna sírkő 4. csoport")
+    }
   }
 }
 </script>
