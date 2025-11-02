@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DuplaTombstoneController;
 use App\Http\Controllers\SzimplaTombstoneController;
 use App\Http\Controllers\UrnaTombstoneController;
 use Illuminate\Http\Request;
@@ -22,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('urna_tombstones', UrnaTombstoneController::class);
 Route::apiResource('szimpla_tombstones', SzimplaTombstoneController::class);
+Route::apiResource('dupla_tombstones', DuplaTombstoneController::class);

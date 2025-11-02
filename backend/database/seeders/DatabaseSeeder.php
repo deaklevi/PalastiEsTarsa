@@ -21,6 +21,10 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->call([UrnaTombstoneSeeder::class, SzimplaTombstoneSeeder::class]);
+        $this->call([
+            UrnaTombstoneSeeder::class,
+            SzimplaTombstoneSeeder::class,
+            DuplaTombstoneSeeder::class
+        ]);
     }
 }
