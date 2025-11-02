@@ -5,7 +5,7 @@
     </div>
     <div class="flex flex-col items-center mx-5 md:mx-12 mb-24 md:mb-52">
       <div class="mt-5 md:mt-10 flex flex-wrap justify-center gap-5 max-w-[1500px]">
-        <BaseProductCard v-for="item in urnaGroup3" :key="item.order" :item="item" />
+        <BaseTombstoneCard v-for="item in urnaGroup3" :key="item.order" :item="item" />
       </div>
     </div>
   </BaseLayout>
@@ -13,14 +13,14 @@
 
 <script>
 import BaseLayout from '@layouts/BaseLayout.vue'
-import BaseProductCard from '@components/BaseProductCard.vue'
+import BaseTombstoneCard from '@components/BaseTombstoneCard.vue'
 import { mapState } from 'pinia'
 import { useUrnaTombstone } from '@stores/UrnaTombstone.mjs'
 
 export default {
   components: {
     BaseLayout,
-    BaseProductCard
+    BaseTombstoneCard
   },
   computed: {
     ...mapState(useUrnaTombstone, ["urnaTombstones"]),
