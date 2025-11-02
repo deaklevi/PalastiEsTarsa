@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 import { http } from '@utils/http.mjs'
-import { onUpdated } from 'vue'
 
 export const useUrnaTombstone = defineStore('urnatombstone', {
     state() {
