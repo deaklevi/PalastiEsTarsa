@@ -21,7 +21,7 @@
     <!-- Close button -->
     <button
       @click="closeModal"
-      class="absolute top-16 md:top-28 right-5 md:right-96 text-white text-5xl font-bold z-[10000]"
+      class="absolute top-16 right-5 text-white text-5xl font-bold z-[10000]"
     >
       &times;
     </button>

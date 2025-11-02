@@ -1,11 +1,30 @@
 <template>
   <BaseLayout>
     <div class="flex flex-col items-center md:mx-12">
-      <h2 class="mt-5 md:mt-10 text-xl font-bold w-full text-center md:text-left">Urna sírkő 1. csoport</h2>
+      <h2 class="mt-5 md:mt-10 text-xl font-bold w-full text-center md:text-left">
+        Urna sírkő 1. csoport
+      </h2>
     </div>
+
     <div class="flex flex-col items-center mx-5 md:mx-12 mb-24 md:mb-52">
-      <div class="mt-5 md:mt-10 flex flex-wrap justify-center gap-5 max-w-[1500px]">
-        <BaseTombstoneCard v-for="item in urnaGroup1" :key="item.order" :item="item" />
+      <!-- Betöltés -->
+      <div v-if="loading" class="mt-10 text-gray-500">Betöltés...</div>
+
+      <!-- Üres állapot -->
+      <div v-else-if="urnaGroup1.length === 0" class="mt-10 text-gray-400 italic">
+        Nincs megjeleníthető sírkő ebben a csoportban.
+      </div>
+
+      <!-- Tartalom -->
+      <div
+        v-else
+        class="mt-5 md:mt-10 flex flex-wrap justify-center gap-5 max-w-[1500px]"
+      >
+        <BaseTombstoneCard
+          v-for="item in urnaGroup1"
+          :key="item.id"
+          :item="item"
+        />
       </div>
     </div>
   </BaseLayout>
@@ -22,11 +41,32 @@ export default {
     BaseLayout,
     BaseTombstoneCard
   },
-  computed: {
-    ...mapState(useUrnaTombstone, ["urnaTombstones"]),
-    urnaGroup1() {
-    return this.urnaTombstones.filter(item => item.group === "Urna sírkő 1. csoport")
+  data() {
+    return {
+      loading: true
     }
+  },
+  computed: {
+    ...mapState(useUrnaTombstone, ['urnaTombstones']),
+    urnaGroup1() {
+      return this.urnaTombstones.filter(
+        item => item.group === 'Urna sírkő 1. csoport'
+      )
+    }
+  },
+  async mounted() {
+    const store = useUrnaTombstone()
+
+    // csak akkor tölt, ha még nincs cache-elve
+    if (store.urnaTombstones.length === 0) {
+      try {
+        await store.getUrnaTombstones()
+      } catch (error) {
+        console.error('Nem sikerült betölteni az urna sírköveket:', error)
+      }
+    }
+
+    this.loading = false
   }
 }
 </script>
