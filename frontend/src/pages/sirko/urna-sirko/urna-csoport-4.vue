@@ -15,7 +15,7 @@
 import BaseLayout from '@layouts/BaseLayout.vue'
 import BaseTombstoneCard from '@components/BaseTombstoneCard.vue'
 import { mapState } from 'pinia'
-import { useUrnaTombstone } from '@stores/UrnaTombstone.mjs'
+import { useUrnaTombstone } from '@stores/UrnaTombstoneStore.mjs'
 
 export default {
   components: {
