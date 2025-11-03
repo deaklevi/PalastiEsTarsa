@@ -9,57 +9,39 @@
     </div>
 
     <!-- Tartalom -->
-    <div
-      v-else
-      class="mt-5 md:mt-10 flex flex-wrap justify-center gap-5 max-w-[1500px]"
-    >
-      <div
-        v-for="item in filteredTombstones"
-        :key="item.id"
-        class="w-40 md:w-52 cursor-pointer"
-        @click="openModal(item)"
-      >
-        <img
-          :src="baseUrl + item.image_url"
-          :alt="item.name"
-          class="w-full h-40 object-cover border-2 border-orange-600"
-        />
+    <div v-else class="mt-5 md:mt-10 flex flex-wrap justify-center gap-5 max-w-[1500px]">
+      <div v-for="item in filteredTombstones" :key="item.id" class="w-40 md:w-52 cursor-pointer" @click="openModal(item)">
+        <img :src="baseUrl + item.image_url" :alt="item.name" class="w-full h-40 object-cover border-2 border-orange-600"/>
         <h5 class="text-sm text-center break-words">
-          <span class="text-orange-600 font-semibold">{{ item.tombstone_id }}</span> |
-          {{ item.name }}
+          <span class="text-orange-600 font-semibold">{{ item.tombstone_id }}</span> | {{ item.name }}
         </h5>
       </div>
     </div>
 
     <!-- Modal -->
-    <div
-      v-if="selectedItem"
-      class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-[9999] w-screen h-screen overflow-hidden"
-      @wheel.prevent
-      @touchmove.prevent
-    >
-      <button
-        @click="closeModal"
-        class="absolute top-16 right-5 text-white text-5xl font-bold z-[10000]"
-      >
-        &times;
-      </button>
+    <div v-if="selectedItem" class="fixed inset-0 bg-black bg-opacity-80 flex items-start justify-center z-[9999] w-screen h-screen pt-10 md:pt-20">
+      <div class="relative w-11/12 lg:w-2/3 max-h-[90vh] lg:bg-neutral-800 lg:border-2 lg:border-orange-600 p-5 max-w-[800px] flex flex-col" @click.stop>
+        <!-- Bezárás -->
+        <button @click="closeModal" class="absolute -top-3 right-0 lg:top-1 lg:right-5 text-white text-5xl font-bold z-[10000]">&times;</button>
 
-      <div
-        class="relative rounded-2xl p-6 w-11/12 md:w-2/3 max-h-[90vh] overflow-auto"
-        @click.stop
-      >
-        <div class="text-center">
+        <!-- Tartalom -->
+        <div class="text-center flex-1 flex flex-col">
           <h2 class="text-xl font-bold text-orange-600 mb-4">{{ selectedItem.name }}</h2>
-          <img
-            :src="baseUrl + selectedItem.image_url"
-            :alt="selectedItem.name"
-            class="mx-auto border-2 border-orange-600 max-h-[60vh] object-contain"
-          />
-          <p class="mt-4 text-white text-base leading-relaxed">
-            <span class="text-orange-600 font-semibold">{{ selectedItem.tombstone_id }}</span> |
-            {{ selectedItem.description }}
+          <img :src="baseUrl + selectedItem.image_url" :alt="selectedItem.name" class="mx-auto lg:border-none border-2 border-orange-600 max-h-[40vh] object-contain mb-4" />
+          <!-- Scrollozható leírás -->
+          <p class="mt-2 text-white text-base leading-relaxed overflow-auto max-h-[30vh] touch-auto" style="-webkit-overflow-scrolling: touch;">
+            <span class="text-orange-600 font-semibold">{{ selectedItem.tombstone_id }}</span> | {{ selectedItem.description }}
           </p>
+        </div>
+
+        <!-- Nyilak szöveggel, egyforma széles gombok -->
+        <div class="flex mt-6 max-w-xs">
+          <button @click="prevItem" class="flex-1 flex justify-center gap-2 w-full p-2 bg-orange-600 text-white rounded lg:hover:bg-orange-700 transition-colors duration-300 mx-1" >
+            Balra
+          </button>
+          <button @click="nextItem" class="flex-1 flex justify-center gap-2 w-full p-2  bg-orange-600 text-white rounded lg:hover:bg-orange-700 transition-colors duration-300 mx-1" >
+            Jobbra 
+          </button>
         </div>
       </div>
     </div>
@@ -81,7 +63,8 @@ export default {
     return {
       loading: true,
       selectedItem: null,
-      baseUrl: 'http://192.168.1.83:8000'
+      baseUrl: 'http://192.168.1.83:8000',
+      currentIndex: 0
     }
   },
   computed: {
@@ -103,8 +86,18 @@ export default {
 
     this.loading = false
   },
+  watch: {
+    selectedItem(val) {
+      if (val) {
+        window.addEventListener('keydown', this.handleArrowKeys)
+      } else {
+        window.removeEventListener('keydown', this.handleArrowKeys)
+      }
+    }
+  },
   methods: {
     openModal(item) {
+      this.currentIndex = this.filteredTombstones.findIndex(i => i.id === item.id)
       this.selectedItem = item
       document.body.style.overflow = 'hidden'
       document.documentElement.style.overflow = 'hidden'
@@ -113,6 +106,24 @@ export default {
       this.selectedItem = null
       document.body.style.overflow = ''
       document.documentElement.style.overflow = ''
+    },
+    handleArrowKeys(event) {
+      if (!this.selectedItem) return
+
+      if (event.key === 'ArrowRight') {
+        this.nextItem()
+      } else if (event.key === 'ArrowLeft') {
+        this.prevItem()
+      }
+    },
+    nextItem() {
+      this.currentIndex = (this.currentIndex + 1) % this.filteredTombstones.length
+      this.selectedItem = this.filteredTombstones[this.currentIndex]
+    },
+    prevItem() {
+      this.currentIndex =
+        (this.currentIndex - 1 + this.filteredTombstones.length) % this.filteredTombstones.length
+      this.selectedItem = this.filteredTombstones[this.currentIndex]
     }
   }
 }
