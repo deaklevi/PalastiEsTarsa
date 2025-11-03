@@ -22,7 +22,7 @@
         <img
           :src="baseUrl + item.image_url"
           :alt="item.name"
-          class="w-full border-2 border-orange-600"
+          class="w-full h-40 object-cover border-2 border-orange-600"
         />
         <h5 class="text-sm text-center break-words">
           <span class="text-orange-600 font-semibold">{{ item.tombstone_id }}</span> |
