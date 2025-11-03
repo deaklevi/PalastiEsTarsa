@@ -7,7 +7,7 @@
     <div class="flex flex-col items-center mx-5 md:mx-12 mb-24 md:mb-52">
       <div class="mt-24 md:mt-52 flex flex-wrap justify-center gap-5 max-w-[1500px]">
         <BaseTitleCard image="../../public/Sirko/urna-sirko.jpg" title="Urna Sírkő" :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Sirko/szimpla-sirko.jpg" title="Szimpla Sírkő"  :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/szimpla-sirko.jpg" title="Szimpla Sírkő"  :link="{name: 'szimpla-sirko'}" />
         <BaseTitleCard image="../../public/Sirko/dupla-sirko.jpg" title="Dupla Sírkő"  :link="{name: 'urna-sirko'}" />
         <BaseTitleCard image="../../public/Sirko/kripta.jpg" title="Kripta"  :link="{name: 'urna-sirko'}" />
         <BaseTitleCard image="../../public/Sirko/akcios-sirko.jpg" title="Akciós Sírkő"  :link="{name: 'urna-sirko'}" />

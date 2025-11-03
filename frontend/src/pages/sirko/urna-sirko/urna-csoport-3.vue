@@ -27,7 +27,7 @@ export default {
 {
   "name": "urna-sirko-csoport-3",
   "meta": {
-    "title": "Urna sírkő U1 csoport – Palásti és Társa Kft.",
+    "title": "Urna sírkő 3 csoport – Palásti és Társa Kft.",
     "description": "Az urna sírkő készítésére az utóbbi évtizedekben egyre nagyobb az igény. Ennek oka, hogy a nagyobb városok temetőiben egyre kevesebb a hely, és az urna síremlék mérete jóval kisebb, mint a hagyományos koporsós sírhelyé. A fotógalériában látható urna síremlékek csak ízelítőt adnak a lehetőségekből, a formák és a gránit fajtája szabadon változtatható."
   }
 }
