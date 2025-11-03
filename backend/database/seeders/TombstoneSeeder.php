@@ -3543,7 +3543,7 @@ class TombstoneSeeder extends Seeder
                 'tombstone_id' => 'D 25',
                 'name' => 'gránit Nero Assoluto India',
                 'description' => 'Mobil (bontható) alapozással készült műkő járdaszegélyen van gránit burkolat. A rézsűsre vágott tömb szegélyek keretet adnak a szimbolikus lépcsőnek. A keretet lezáró nyagyfedlap 5cm vastag. Az áthidaló lépcsőn van egy kis lépcső és kettő darab esztergált váza. Az emlék, két lépcsős fényezett faltzal készült, ún. "tulipános" formájú, bronz motívumokkal.',
-                'image_url' => '/storage/tombstones/D.jpg',
+                'image_url' => '/storage/tombstones/D25.jpg',
                 'group' => 'D4',
                 'created_at' => now(),
                 'updated_at' => now(),
