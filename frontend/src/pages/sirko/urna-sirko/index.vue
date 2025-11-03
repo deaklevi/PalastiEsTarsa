@@ -7,9 +7,9 @@
     <div class="flex flex-col items-center mx-5 md:mx-12 mb-24 md:mb-52">
       <div class="mt-24 md:mt-52 flex flex-wrap justify-center gap-5 max-w-[1500px]">
         <BaseTitleCard image="../../public/Sirko/Urna-sirko/urna-sirko-1.png" title="Urna sírkő 1. csoport" :link="{name: 'urna-sirko-csoport-1'}" />
-        <BaseTitleCard image="../../public/Sirko/Urna-sirko/urna-sirko-2.png" title="Urna sírkő 2. csoport" :link="{name: 'urna-sirko-csoport-2'}" />
-        <BaseTitleCard image="../../public/Sirko/Urna-sirko/urna-sirko-3.png" title="Urna sírkő 3. csoport" :link="{name: 'urna-sirko-csoport-3'}" />
-        <BaseTitleCard image="../../public/Sirko/Urna-sirko/urna-sirko-4.png" title="Urna sírkő 4. csoport" :link="{name: 'urna-sirko-csoport-4'}" />
+        <BaseTitleCard image="../../public/Sirko/Urna-sirko/urna-sirko-2.png" title="Urna sírkő 2. csoport" :link="{name: 'urna-sirko-csoport-1'}" />
+        <BaseTitleCard image="../../public/Sirko/Urna-sirko/urna-sirko-3.png" title="Urna sírkő 3. csoport" :link="{name: 'urna-sirko-csoport-1'}" />
+        <BaseTitleCard image="../../public/Sirko/Urna-sirko/urna-sirko-4.png" title="Urna sírkő 4. csoport" :link="{name: 'urna-sirko-csoport-1'}" />
       </div>
     </div>
   </BaseLayout>

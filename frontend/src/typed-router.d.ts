@@ -20,11 +20,6 @@ declare module 'vue-router/auto-routes' {
   export interface RouteNamedMap {
     'home': RouteRecordInfo<'home', '/', Record<never, never>, Record<never, never>>,
     'sirko': RouteRecordInfo<'sirko', '/sirko', Record<never, never>, Record<never, never>>,
-    'szimpla-sirko': RouteRecordInfo<'szimpla-sirko', '/sirko/szimpla-sirko', Record<never, never>, Record<never, never>>,
-    'szimpla-sirko-csoport-1': RouteRecordInfo<'szimpla-sirko-csoport-1', '/sirko/szimpla-sirko/szimpla-csoport-1', Record<never, never>, Record<never, never>>,
-    'szimpla-sirko-csoport-2': RouteRecordInfo<'szimpla-sirko-csoport-2', '/sirko/szimpla-sirko/szimpla-csoport-2', Record<never, never>, Record<never, never>>,
-    'szimpla-sirko-csoport-3': RouteRecordInfo<'szimpla-sirko-csoport-3', '/sirko/szimpla-sirko/szimpla-csoport-3', Record<never, never>, Record<never, never>>,
-    'szimpla-sirko-csoport-4': RouteRecordInfo<'szimpla-sirko-csoport-4', '/sirko/szimpla-sirko/szimpla-csoport-4', Record<never, never>, Record<never, never>>,
     'urna-sirko': RouteRecordInfo<'urna-sirko', '/sirko/urna-sirko', Record<never, never>, Record<never, never>>,
     'urna-sirko-csoport-1': RouteRecordInfo<'urna-sirko-csoport-1', '/sirko/urna-sirko/urna-csoport-1', Record<never, never>, Record<never, never>>,
     'urna-sirko-csoport-2': RouteRecordInfo<'urna-sirko-csoport-2', '/sirko/urna-sirko/urna-csoport-2', Record<never, never>, Record<never, never>>,
@@ -49,26 +44,6 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/sirko/index.vue': {
       routes: 'sirko'
-      views: never
-    }
-    'src/pages/sirko/szimpla-sirko/index.vue': {
-      routes: 'szimpla-sirko'
-      views: never
-    }
-    'src/pages/sirko/szimpla-sirko/szimpla-csoport-1.vue': {
-      routes: 'szimpla-sirko-csoport-1'
-      views: never
-    }
-    'src/pages/sirko/szimpla-sirko/szimpla-csoport-2.vue': {
-      routes: 'szimpla-sirko-csoport-2'
-      views: never
-    }
-    'src/pages/sirko/szimpla-sirko/szimpla-csoport-3.vue': {
-      routes: 'szimpla-sirko-csoport-3'
-      views: never
-    }
-    'src/pages/sirko/szimpla-sirko/szimpla-csoport-4.vue': {
-      routes: 'szimpla-sirko-csoport-4'
       views: never
     }
     'src/pages/sirko/urna-sirko/index.vue': {

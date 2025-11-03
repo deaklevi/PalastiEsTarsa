@@ -1,17 +1,15 @@
-<script>
-import { RouterView } from 'vue-router';
-import { useUrnaTombstone } from '@stores/UrnaTombstoneStore.mjs'
-import { useSzimplaTombstone } from '@stores/SzimplaTombstoneStore.mjs'
+<script setup>
+import { RouterView } from 'vue-router'
+import { useTombstone } from '@stores/TombstoneStore.mjs'
+import { onMounted } from 'vue'
 
-export default {
-  components: {
-    RouterView
-  },
-  mounted() {
-    useUrnaTombstone().getUrnaTombstones(),
-    useSzimplaTombstone().getSzimplaTombstones()
+const tombstoneStore = useTombstone()
+
+onMounted(() => {
+  if (!tombstoneStore.tombstones.length) {
+    tombstoneStore.getTombstones()
   }
-}
+})
 </script>
 
 <template>
