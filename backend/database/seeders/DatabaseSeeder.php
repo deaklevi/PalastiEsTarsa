@@ -22,9 +22,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            UrnaTombstoneSeeder::class,
-            SzimplaTombstoneSeeder::class,
-            DuplaTombstoneSeeder::class
+            TombstoneSeeder::class
         ]);
     }
 }

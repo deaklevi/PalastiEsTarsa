@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('szimpla_tombstones', function (Blueprint $table) {
+        Schema::create('tombstones', function (Blueprint $table) {
             $table->id();
             $table->integer("order");
             $table->string("tombstone_id", 10);
             $table->string("name", 50);
             $table->text("description");
             $table->string("image_url", 255)->nullable();
-            $table->string("group", 50)->nullable();
+            $table->string("group", 50);
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('szimpla_tombstones');
+        Schema::dropIfExists('tombstones');
     }
 };
