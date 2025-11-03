@@ -2,7 +2,7 @@
   <BaseLayout>
     <div class="flex flex-col items-center md:mx-12">
       <h2 class="mt-5 md:mt-10 text-xl font-bold w-full text-center md:text-left">
-        Urna sírkő – U1 csoport
+        Urna sírkő 1. csoport
       </h2>
     </div>
 
