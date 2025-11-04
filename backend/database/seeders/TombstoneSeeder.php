@@ -5065,7 +5065,6 @@ class TombstoneSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            // Kő váza
         ]);
     }
 }
