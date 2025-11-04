@@ -35,16 +35,20 @@
         </div>
 
         <!-- Nyilak szöveggel, egyforma széles gombok -->
-        <div class="flex mt-6 max-w-xs">
-          <button @click="prevItem" class="flex-1 flex justify-center gap-2 w-full p-2 bg-orange-600 text-white rounded lg:hover:bg-orange-700 transition-colors duration-300 mx-1" >
-            Balra
-          </button>
-          <button @click="nextItem" class="flex-1 flex justify-center gap-2 w-full p-2  bg-orange-600 text-white rounded lg:hover:bg-orange-700 transition-colors duration-300 mx-1" >
-            Jobbra 
-          </button>
+        <div class="flex justify-center mt-6">
+          <div class="flex w-full max-w-xs">
+            <button @click="prevItem" class="flex-1 flex justify-center gap-2 p-2 bg-orange-600 text-white rounded lg:hover:bg-orange-700 transition-colors duration-300 mx-1" >
+              Balra
+            </button>
+            <button @click="nextItem" class="flex-1 flex justify-center gap-2 p-2 bg-orange-600 text-white rounded lg:hover:bg-orange-700 transition-colors duration-300 mx-1" >
+              Jobbra
+            </button>
+          </div>
         </div>
+
       </div>
     </div>
+    
   </div>
 </template>
 
