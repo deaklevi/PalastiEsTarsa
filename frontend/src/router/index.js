@@ -4,7 +4,16 @@ import { routes } from 'vue-router/auto-routes'
 export const router = createRouter({
   history: createWebHistory(),
   linkActiveClass: 'active',
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else if (to.hash) {
+      return { el: to.hash }
+    } else {
+      return { top: 0 }
+    }
+  }
 })
 
 // 🔥 Dinamikus meta title + description kezelés
