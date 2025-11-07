@@ -11,7 +11,7 @@
     <!-- Tartalom -->
     <div v-else class="mt-5 md:mt-10 flex flex-wrap justify-center gap-5 max-w-[1500px]" >
       <div v-for="item in filteredTombstones" :key="item.id" class="w-40 md:w-52 cursor-pointer" @click="openModal(item)" >
-        <div class="relative w-full h-40 border-2 border-orange-600 flex items-center justify-center bg-white" >
+        <div class="relative w-52 h-40 border-2 border-orange-600 flex items-center justify-center bg-white" >
           <img :src="baseUrl + item.image_url" :alt="item.name" class="max-w-full max-h-full object-contain" />
         </div>
         <h5 class="text-sm text-center break-words">
