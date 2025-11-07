@@ -27,6 +27,7 @@ declare module 'vue-router/auto-routes' {
     'dupla-sirko-csoport-3': RouteRecordInfo<'dupla-sirko-csoport-3', '/sirko/dupla-sirko/dupla-csoport-3', Record<never, never>, Record<never, never>>,
     'dupla-sirko-csoport-4': RouteRecordInfo<'dupla-sirko-csoport-4', '/sirko/dupla-sirko/dupla-csoport-4', Record<never, never>, Record<never, never>>,
     'kripta-sirko': RouteRecordInfo<'kripta-sirko', '/sirko/kripta-sirko', Record<never, never>, Record<never, never>>,
+    'kulonleges-sirko': RouteRecordInfo<'kulonleges-sirko', '/sirko/kulonleges-sirko', Record<never, never>, Record<never, never>>,
     'marvany-sirko': RouteRecordInfo<'marvany-sirko', '/sirko/marvany-sirko', Record<never, never>, Record<never, never>>,
     'meszko-sirko': RouteRecordInfo<'meszko-sirko', '/sirko/meszko-sirko', Record<never, never>, Record<never, never>>,
     'szimpla-sirko': RouteRecordInfo<'szimpla-sirko', '/sirko/szimpla-sirko', Record<never, never>, Record<never, never>>,
@@ -86,6 +87,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/sirko/kripta-sirko/index.vue': {
       routes: 'kripta-sirko'
+      views: never
+    }
+    'src/pages/sirko/kulonleges-sirko/index.vue': {
+      routes: 'kulonleges-sirko'
       views: never
     }
     'src/pages/sirko/marvany-sirko/index.vue': {
