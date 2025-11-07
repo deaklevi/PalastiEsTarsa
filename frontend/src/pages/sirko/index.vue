@@ -10,7 +10,7 @@
         <BaseTitleCard image="../../public/Sirko/szimpla-sirko.jpg" title="Szimpla Sírkő"  :link="{name: 'szimpla-sirko'}" />
         <BaseTitleCard image="../../public/Sirko/dupla-sirko.jpg" title="Dupla Sírkő"  :link="{name: 'dupla-sirko'}" />
         <BaseTitleCard image="../../public/Sirko/kripta.jpg" title="Kripta"  :link="{name: 'kripta-sirko'}" />
-        <BaseTitleCard image="../../public/Sirko/akcios-sirko.jpg" title="Akciós Sírkő"  :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/akcios-sirko.jpg" title="Akciós Sírkő"  :link="{name: 'akcios-sirko'}" />
         <BaseTitleCard image="../../public/Sirko/marvany-sirko.jpg" title="Márvány Sírkő"  :link="{name: 'urna-sirko'}" />
         <BaseTitleCard image="../../public/Sirko/meszko-sirko.jpg" title="Mészkő Sírkő"  :link="{name: 'urna-sirko'}" />
         <BaseTitleCard image="../../public/Sirko/kulonleges-sirko.jpg" title="Különleges Sírkő"  :link="{name: 'urna-sirko'}" />

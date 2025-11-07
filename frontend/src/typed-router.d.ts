@@ -20,6 +20,7 @@ declare module 'vue-router/auto-routes' {
   export interface RouteNamedMap {
     'home': RouteRecordInfo<'home', '/', Record<never, never>, Record<never, never>>,
     'sirko': RouteRecordInfo<'sirko', '/sirko', Record<never, never>, Record<never, never>>,
+    'akcios-sirko': RouteRecordInfo<'akcios-sirko', '/sirko/akcios-sirko', Record<never, never>, Record<never, never>>,
     'dupla-sirko': RouteRecordInfo<'dupla-sirko', '/sirko/dupla-sirko', Record<never, never>, Record<never, never>>,
     'dupla-sirko-csoport-1': RouteRecordInfo<'dupla-sirko-csoport-1', '/sirko/dupla-sirko/dupla-csoport-1', Record<never, never>, Record<never, never>>,
     'dupla-sirko-csoport-2': RouteRecordInfo<'dupla-sirko-csoport-2', '/sirko/dupla-sirko/dupla-csoport-2', Record<never, never>, Record<never, never>>,
@@ -55,6 +56,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/sirko/index.vue': {
       routes: 'sirko'
+      views: never
+    }
+    'src/pages/sirko/akcios-sirko/index.vue': {
+      routes: 'akcios-sirko'
       views: never
     }
     'src/pages/sirko/dupla-sirko/index.vue': {
