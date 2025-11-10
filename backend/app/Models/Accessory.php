@@ -13,7 +13,7 @@ class Accessory extends Model
 
     public $fillable = [
         "order",
-        "accessories_id",
+        "accessory_id",
         "name",
         "type",
         "size",

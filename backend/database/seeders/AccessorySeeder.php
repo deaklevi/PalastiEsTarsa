@@ -19,7 +19,7 @@ class AccessorySeeder extends Seeder
                         // Kő váza
             [
                 'order' => 1,
-                'accessories_id' => 'Nr 1',
+                'accessory_id' => 'Nr 1',
                 'name' => 'Szögletes, fózolt váza',
                 'type' => 'Szögletes, fózolt kőváza',
                 'size' => '20x10x10cm, 25x10x10cm, 30x10x10cm, 30x15x15cm',
@@ -32,7 +32,7 @@ class AccessorySeeder extends Seeder
             ],
             [
                 'order' => 2,
-                'accessories_id' => 'Nr 2',
+                'accessory_id' => 'Nr 2',
                 'name' => 'Szögletes, ívfózolt váza',
                 'type' => 'Szögletes, ívfózolt kőváza',
                 'size' => '20x10x10cm, 25x10x10cm, 30x10x10cm, 30x15x15cm',
@@ -45,7 +45,7 @@ class AccessorySeeder extends Seeder
             ],
             [
                 'order' => 3,
-                'accessories_id' => 'Nr 3',
+                'accessory_id' => 'Nr 3',
                 'name' => 'Szögletes, trapézfózolt váza',
                 'type' => 'Szögletes, álló trapézfózolt kőváza',
                 'size' => '20x10x10cm, 25x10x10cm, 30x10x10cm, 30x15x15cm',
@@ -58,7 +58,7 @@ class AccessorySeeder extends Seeder
             ],
             [
                 'order' => 4,
-                'accessories_id' => 'Nr 4',
+                'accessory_id' => 'Nr 4',
                 'name' => 'Szögletes, trapéz váza',
                 'type' => 'Szögletes, trapéz kőváza',
                 'size' => '20x10x10cm, 25x10x10cm, 30x15x15cm',
@@ -71,7 +71,7 @@ class AccessorySeeder extends Seeder
             ],
             [
                 'order' => 5,
-                'accessories_id' => 'Nr 5',
+                'accessory_id' => 'Nr 5',
                 'name' => 'Szögletes, álló hasáb váza',
                 'type' => 'Szögletes, álló hasáb kőváza',
                 'size' => '20x10x10cm, 25x10x10cm, 30x10x10cm, 30x15x15cm',
@@ -84,7 +84,7 @@ class AccessorySeeder extends Seeder
             ],
             [
                 'order' => 6,
-                'accessories_id' => 'Nr 6',
+                'accessory_id' => 'Nr 6',
                 'name' => 'Szögletes, trapéz váza',
                 'type' => 'Szögletes, trapéz kőváza',
                 'size' => '20x10x10cm, 25x10x10cm, 30x15x15cm',
@@ -97,7 +97,7 @@ class AccessorySeeder extends Seeder
             ],
             [
                 'order' => 7,
-                'accessories_id' => 'Nr 7',
+                'accessory_id' => 'Nr 7',
                 'name' => 'Hasított, faragott váza',
                 'type' => 'Hasított, faragott kőváza',
                 'size' => '20x15x15cm, 25x15x15cm, 30x15x15cm',
@@ -110,7 +110,7 @@ class AccessorySeeder extends Seeder
             ],
             [
                 'order' => 8,
-                'accessories_id' => 'Nr 8',
+                'accessory_id' => 'Nr 8',
                 'name' => 'Esztergált váza',
                 'type' => 'Görög" esztergált kőváza',
                 'size' => '25x12x12cm, 30x12x12cm 30x15x15cm',
@@ -123,7 +123,7 @@ class AccessorySeeder extends Seeder
             ],
             [
                 'order' => 9,
-                'accessories_id' => 'Nr 9',
+                'accessory_id' => 'Nr 9',
                 'name' => 'Esztergált váza',
                 'type' => 'Esztergált kőváza',
                 'size' => '25x14x14cm, 30x14x14cm 32x16x16cm',
@@ -136,7 +136,7 @@ class AccessorySeeder extends Seeder
             ],
             [
                 'order' => 10,
-                'accessories_id' => 'Nr 10',
+                'accessory_id' => 'Nr 10',
                 'name' => 'Esztergált váza',
                 'type' => 'Esztergált kőváza',
                 'size' => '30x14x14cm 32x16x16cm, 32x18x18cm',
@@ -149,7 +149,7 @@ class AccessorySeeder extends Seeder
             ],
             [
                 'order' => 11,
-                'accessories_id' => 'Nr 11',
+                'accessory_id' => 'Nr 11',
                 'name' => 'Esztergált váza',
                 'type' => 'Esztergált kőváza',
                 'size' => '25x14x14cm, 30x14x14cm 32x16x16cm',
@@ -162,7 +162,7 @@ class AccessorySeeder extends Seeder
             ],
             [
                 'order' => 12,
-                'accessories_id' => 'Nr 12',
+                'accessory_id' => 'Nr 12',
                 'name' => 'Esztergált váza',
                 'type' => 'Esztergált kőváza',
                 'size' => '25x14x14cm, 30x14x14cm 32x16x16cm',
@@ -175,7 +175,7 @@ class AccessorySeeder extends Seeder
             ],
             [
                 'order' => 13,
-                'accessories_id' => 'Nr 13',
+                'accessory_id' => 'Nr 13',
                 'name' => 'Esztergált váza',
                 'type' => 'Esztergált kőváza',
                 'size' => '25x14x14cm, 30x14x14cm 32x16x16cm',
@@ -188,7 +188,7 @@ class AccessorySeeder extends Seeder
             ],
             [
                 'order' => 14,
-                'accessories_id' => 'Nr 14',
+                'accessory_id' => 'Nr 14',
                 'name' => 'Esztergált váza',
                 'type' => 'Esztergált kőváza',
                 'size' => '25x20x20cm, 25x25x25cm, 30x30x30cm',

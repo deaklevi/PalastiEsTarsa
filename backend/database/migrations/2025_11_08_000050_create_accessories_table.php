@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('accessories', function (Blueprint $table) {
             $table->id();
             $table->integer("order");
-            $table->string("accessories_id", 10);
+            $table->string("accessory_id", 10);
             $table->string("name", 50);
             $table->text("type");
             $table->text("size");
