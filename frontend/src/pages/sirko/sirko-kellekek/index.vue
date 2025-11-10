@@ -6,7 +6,7 @@
     </div>
     <div class="flex flex-col items-center mx-5 md:mx-12 mb-24 md:mb-52">
       <div class="mt-24 md:mt-52 flex flex-wrap justify-center gap-5 max-w-[1500px]">
-        <BaseTitleCard image="../../public/Sirko/Sirko-kellekek/kovaza.jpg" title="Kőváza" :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/Sirko-kellekek/kovaza.jpg" title="Kőváza" :link="{name: 'sirko-kellekek-kovaza'}" />
         <BaseTitleCard image="../../public/Sirko/Sirko-kellekek/ko-mecsestarto.jpg" title="Kő mécsestartó"  :link="{name: 'urna-sirko'}" />
         <BaseTitleCard image="../../public/Sirko/Sirko-kellekek/ko-viragtarto.jpg" title="Kő virágtartó"  :link="{name: 'urna-sirko'}" />
         <BaseTitleCard image="../../public/Sirko/Sirko-kellekek/bronz-sirko-kellekek.jpg" title="Bronz sírkő kellékek"  :link="{name: 'urna-sirko'}" />
