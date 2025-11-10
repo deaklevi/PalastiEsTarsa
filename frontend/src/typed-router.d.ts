@@ -34,6 +34,7 @@ declare module 'vue-router/auto-routes' {
     'sirko-kellekek-ko-mecsestarto': RouteRecordInfo<'sirko-kellekek-ko-mecsestarto', '/sirko/sirko-kellekek/ko-mecsestarto', Record<never, never>, Record<never, never>>,
     'sirko-kellekek-ko-vaza': RouteRecordInfo<'sirko-kellekek-ko-vaza', '/sirko/sirko-kellekek/ko-vaza', Record<never, never>, Record<never, never>>,
     'sirko-kellekek-ko-viragtarto': RouteRecordInfo<'sirko-kellekek-ko-viragtarto', '/sirko/sirko-kellekek/ko-viragtarto', Record<never, never>, Record<never, never>>,
+    'sirko-kellekek-sirfelirat': RouteRecordInfo<'sirko-kellekek-sirfelirat', '/sirko/sirko-kellekek/sirfelirat', Record<never, never>, Record<never, never>>,
     'szimpla-sirko': RouteRecordInfo<'szimpla-sirko', '/sirko/szimpla-sirko', Record<never, never>, Record<never, never>>,
     'szimpla-sirko-csoport-1': RouteRecordInfo<'szimpla-sirko-csoport-1', '/sirko/szimpla-sirko/szimpla-csoport-1', Record<never, never>, Record<never, never>>,
     'szimpla-sirko-csoport-2': RouteRecordInfo<'szimpla-sirko-csoport-2', '/sirko/szimpla-sirko/szimpla-csoport-2', Record<never, never>, Record<never, never>>,
@@ -119,6 +120,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/sirko/sirko-kellekek/ko-viragtarto.vue': {
       routes: 'sirko-kellekek-ko-viragtarto'
+      views: never
+    }
+    'src/pages/sirko/sirko-kellekek/sirfelirat.vue': {
+      routes: 'sirko-kellekek-sirfelirat'
       views: never
     }
     'src/pages/sirko/szimpla-sirko/index.vue': {

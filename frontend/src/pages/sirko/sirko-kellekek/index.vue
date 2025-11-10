@@ -10,7 +10,7 @@
         <BaseTitleCard image="../../public/Sirko/Sirko-kellekek/ko-mecsestarto.jpg" title="Kő mécsestartó"  :link="{name: 'sirko-kellekek-ko-mecsestarto'}" />
         <BaseTitleCard image="../../public/Sirko/Sirko-kellekek/ko-viragtarto.jpg" title="Kő virágtartó"  :link="{name: 'sirko-kellekek-ko-viragtarto'}" />
         <BaseTitleCard image="../../public/Sirko/Sirko-kellekek/bronz-sirko-kellekek.jpg" title="Bronz sírkő kellékek"  :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Sirko/Sirko-kellekek/sirfelirat.jpg" title="Sírfelirat"  :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/Sirko-kellekek/sirfelirat.jpg" title="Sírfelirat"  :link="{name: 'sirko-kellekek-sirfelirat'}" />
       </div>
     </div>
   </BaseLayout>
