@@ -16,7 +16,7 @@ class AccessorySeeder extends Seeder
     public function run()
     {
         DB::table('accessories')->insert([
-                        // Kő váza
+            // Kő váza
             [
                 'order' => 1,
                 'accessory_id' => 'Nr 1',
@@ -199,6 +199,7 @@ class AccessorySeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            // Kő váza
         ]);
     }
 }
