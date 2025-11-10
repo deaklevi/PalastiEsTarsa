@@ -25,7 +25,7 @@ class UpdateAccessoryRequest extends FormRequest
     {
         return [
             "order" => ["required", "integer", "max:500"],
-            "accessory_id" => ["required", "string", "max:10"],
+            "accessory_id" => ["nullable", "string", "max:10"],
             "name" => ["required", "string", "max:50"],
             "type" => ["required", "string"],
             "size" => ["required", "string"],
