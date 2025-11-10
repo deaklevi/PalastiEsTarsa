@@ -27,12 +27,16 @@
         <button @click="closeModal" class="absolute -top-3 right-0 lg:top-1 lg:right-5 text-white text-5xl font-bold z-[10000]" >&times;</button>
 
         <!-- Tartalom -->
-        <div class="text-center flex-1 flex flex-col">
-          <h2 class="text-xl font-bold text-orange-600 mb-4">{{ selectedItem.name }}</h2>
+        <div class="flex-1 flex flex-col">
+          <h2 class="text-center text-xl font-bold text-orange-600 mb-4">{{ selectedItem.name }}</h2>
           <img :src="baseUrl + selectedItem.image_url" :alt="selectedItem.name" class="mx-auto lg:border-none border-2 border-orange-600 max-h-[40vh] object-contain mb-4" />
           <!-- Scrollozható leírás -->
-          <p class="mt-2 text-white text-base leading-relaxed overflow-auto max-h-[30vh] touch-auto" style="-webkit-overflow-scrolling: touch;">
-            <span class="text-orange-600 font-semibold">{{ selectedItem.accessory_id }}</span> | {{ selectedItem.type }}
+          <p class="mt-2 text-white text-base leading-relaxed overflow-auto max-h-[30vh] touch-auto mx-auto sm:w-[32rem]" style="-webkit-overflow-scrolling: touch;">
+            <span class="text-orange-600 font-semibold">{{ selectedItem.accessory_id }}</span> | {{ selectedItem.name }}
+            <br><span class="text-orange-600 font-semibold">Típus neve:</span> {{ selectedItem.type }}
+            <br><span class="text-orange-600 font-semibold">Alkalmazott méretek:</span> {{ selectedItem.size }}
+            <br><span class="text-orange-600 font-semibold">Ajánlott kőtípus:</span> {{ selectedItem.recommended_type }}
+            <br><span class="text-orange-600 font-semibold">Gyártási technológia:</span> {{ selectedItem.manufacturing_technology }}
           </p>
         </div>
 
