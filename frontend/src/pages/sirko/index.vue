@@ -15,7 +15,7 @@
         <BaseTitleCard image="../../public/Sirko/meszko-sirko.jpg" title="Mészkő Sírkő"  :link="{name: 'meszko-sirko'}" />
         <BaseTitleCard image="../../public/Sirko/kulonleges-sirko.jpg" title="Különleges Sírkő"  :link="{name: 'kulonleges-sirko'}" />
         <BaseTitleCard image="../../public/Sirko/sirko-kellekek.jpg" title="Sírkő kellékek"  :link="{name: 'sirko-kellekek'}" />
-        <BaseTitleCard image="../../public/Sirko/sirko-keszites.jpg" title="Sírkő készítés"  :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Sirko/sirko-keszites.jpg" title="Sírkő készítés"  :link="{name: 'sirko-keszites'}" />
       </div>
     </div>
   </BaseLayout>
