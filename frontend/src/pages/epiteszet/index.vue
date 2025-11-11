@@ -6,7 +6,7 @@
 
     <div class="flex flex-col items-center mx-5 md:mx-12 mb-24 md:mb-52">
       <div class="mt-5 md:mt-10 flex flex-wrap justify-center gap-5 max-w-[1500px]">
-        <BaseTitleCard image="../../public/Epiteszet/konyhapult.jpg" title="Konyhapult" :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Epiteszet/konyhapult.jpg" title="Konyhapult" :link="{name: 'epiteszet-konyhapult'}" />
         <BaseTitleCard image="../../public/Epiteszet/furdoszobapult.jpg" title="Fürdőszobapult" :link="{name: 'urna-sirko'}" />
         <BaseTitleCard image="../../public/Epiteszet/lepcsoburkolat.jpg" title="Lépcsőburkolat" :link="{name: 'urna-sirko'}" />
         <BaseTitleCard image="../../public/Epiteszet/kerites-fedko.jpg" title="Kerítés fedkő" :link="{name: 'urna-sirko'}" />
