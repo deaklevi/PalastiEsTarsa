@@ -9,7 +9,7 @@
     <BaseAccessoriesCard group="sirfelirat" class="mt-12 md:mt-[10.5rem]"/>
 
     <div class="flex flex-col w-full items-center mb-24 md:mb-52">
-        <div class="flex flex-col items-center bg-neutral-800 border-2 border-orange-600 p-5 md:p-2 md:flex-row md:items-start max-w-[1500px]">
+        <div class="flex flex-col items-center bg-neutral-800 border-2 border-orange-600 p-5 md:p-2 md:flex-row md:items-start max-w-[1500px] md:mx-12">
             <p class="md:ml-5 text-sm text-white text-left max-w-[500px] md:max-w-max">
                 <span class="text-orange-600 font-semibold text-base">Gyártási technológia</span>
                 <br><br>
