@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccessoriseController;
 use App\Http\Controllers\AccessoryController;
+use App\Http\Controllers\ArchitectureController;
 use App\Http\Controllers\TombstoneController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('tombstones', TombstoneController::class);
 Route::apiResource('accessories', AccessoryController::class);
+Route::apiResource('architectures', ArchitectureController::class);
