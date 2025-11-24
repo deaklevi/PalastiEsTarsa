@@ -25,7 +25,7 @@ class StoreArchitectureRequest extends FormRequest
     {
         return [
             "order" => ["required", "integer", "max:500"],
-            "name" => ["required", "string", "max:50"],
+            "name" => ["required", "string", "max:100"],
             "image" => ["nullable", "file", "image", "max:2048"], // ide jön a feltöltött fájl
             "group" => ["nullable", "string", "max:50"],
         ];
