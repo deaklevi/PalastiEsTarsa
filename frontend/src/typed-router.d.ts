@@ -20,7 +20,9 @@ declare module 'vue-router/auto-routes' {
   export interface RouteNamedMap {
     'home': RouteRecordInfo<'home', '/', Record<never, never>, Record<never, never>>,
     'epiteszet': RouteRecordInfo<'epiteszet', '/epiteszet', Record<never, never>, Record<never, never>>,
+    'epiteszet-furdoszobapult': RouteRecordInfo<'epiteszet-furdoszobapult', '/epiteszet/furdoszobapult', Record<never, never>, Record<never, never>>,
     'epiteszet-konyhapult': RouteRecordInfo<'epiteszet-konyhapult', '/epiteszet/konyhapult', Record<never, never>, Record<never, never>>,
+    'epiteszet-lepcsoburkolat': RouteRecordInfo<'epiteszet-lepcsoburkolat', '/epiteszet/lepcsoburkolat', Record<never, never>, Record<never, never>>,
     'sirko': RouteRecordInfo<'sirko', '/sirko', Record<never, never>, Record<never, never>>,
     'akcios-sirko': RouteRecordInfo<'akcios-sirko', '/sirko/akcios-sirko', Record<never, never>, Record<never, never>>,
     'dupla-sirko': RouteRecordInfo<'dupla-sirko', '/sirko/dupla-sirko', Record<never, never>, Record<never, never>>,
@@ -70,8 +72,16 @@ declare module 'vue-router/auto-routes' {
       routes: 'epiteszet'
       views: never
     }
+    'src/pages/epiteszet/furdoszobapult/index.vue': {
+      routes: 'epiteszet-furdoszobapult'
+      views: never
+    }
     'src/pages/epiteszet/konyhapult/index.vue': {
       routes: 'epiteszet-konyhapult'
+      views: never
+    }
+    'src/pages/epiteszet/lepcsoburkolat/index.vue': {
+      routes: 'epiteszet-lepcsoburkolat'
       views: never
     }
     'src/pages/sirko/index.vue': {
