@@ -9,7 +9,7 @@
       <RouterLink :to="{name: 'home'}" class="hover:text-orange-600 transition-colors duration-300">Főoldal</RouterLink>
       <RouterLink :to="{name: 'sirko'}" class="hover:text-orange-600 transition-colors duration-300">Sírkő</RouterLink>
       <RouterLink :to="{name: 'epiteszet'}" class="hover:text-orange-600 transition-colors duration-300">Építészet</RouterLink>
-      <RouterLink to="#" class="hover:text-orange-600 transition-colors duration-300">Szolgáltatások</RouterLink>
+      <RouterLink :to="{name: 'szolgaltatasok'}" class="hover:text-orange-600 transition-colors duration-300">Szolgáltatások</RouterLink>
       <RouterLink to="#" class="hover:text-orange-600 transition-colors duration-300">Kő anyagminták</RouterLink>
       <RouterLink to="#" class="hover:text-orange-600 transition-colors duration-300">Egyéb információk</RouterLink>
       <RouterLink to="#" class="hover:text-orange-600 transition-colors duration-300">Kapcsolat</RouterLink>
@@ -30,7 +30,7 @@
     <RouterLink :to="{name: 'home'}">Főoldal</RouterLink>
     <RouterLink :to="{name: 'sirko'}">Sírkő</RouterLink>
     <RouterLink :to="{name: 'epiteszet'}">Építészet</RouterLink>
-    <RouterLink to="#">Szolgáltatások</RouterLink>
+    <RouterLink :to="{name: 'szolgaltatasok'}">Szolgáltatások</RouterLink>
     <RouterLink to="#">Kő anyagminták</RouterLink>
     <RouterLink to="#">Egyéb információk</RouterLink>
     <RouterLink to="#">Kapcsolat</RouterLink>
