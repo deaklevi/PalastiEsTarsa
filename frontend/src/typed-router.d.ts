@@ -63,6 +63,7 @@ declare module 'vue-router/auto-routes' {
     'urna-sirko-csoport-3': RouteRecordInfo<'urna-sirko-csoport-3', '/sirko/urna-sirko/urna-csoport-3', Record<never, never>, Record<never, never>>,
     'urna-sirko-csoport-4': RouteRecordInfo<'urna-sirko-csoport-4', '/sirko/urna-sirko/urna-csoport-4', Record<never, never>, Record<never, never>>,
     'szolgaltatasok': RouteRecordInfo<'szolgaltatasok', '/szolgaltatasok', Record<never, never>, Record<never, never>>,
+    'szolgaltatasok-3dtervezes': RouteRecordInfo<'szolgaltatasok-3dtervezes', '/szolgaltatasok/3D-tervezes', Record<never, never>, Record<never, never>>,
   }
 
   /**
@@ -254,6 +255,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/szolgaltatasok/index.vue': {
       routes: 'szolgaltatasok'
+      views: never
+    }
+    'src/pages/szolgaltatasok/3D-tervezes.vue': {
+      routes: 'szolgaltatasok-3dtervezes'
       views: never
     }
   }
