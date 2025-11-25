@@ -19,7 +19,7 @@
         </p>
       </div>
       <div class="max-w-[800px]">
-        <RouterLink to="#">
+        <RouterLink :to="{name: 'szolgaltatasok-3dtervezes'}">
             <BaseInfoCard class="mb-5" image="../../public/Szolgaltatasok/3d-tervezes.jpg" text="A <span class='text-orange-600 font-semibold'>3D-s látványtervezés</span> a sírkő készítők világában egyáltalán nem jellemző. Segítséget nyújt a megrendelőnek és a kivitelezőnek egyaránt a komolyabb döntések előtt. Lehetőséget nyújt a „tervező asztal” arra, hogy a megálmodott, elképzelt formákat vizuálisan megjelenítse. Bizonyos szempontból könnyebb egy háromdimenziós látványtervet elkészíteni, mint saját fantázia alapján leképezni azt kétdimenziós térre. Az objektum elkészítésekor, ellentétben a lerajzolásával, nem kell figyelembe venni a perspektíva és a fényviszonyok torzítását. Ezen kívül az is az előnyök közé tartozik, hogy könnyebb a képet módosítani, átrendezni vagy áttervezni. Egy jó kép elkészítéséhez rengeteg technikai háttértudás kell, és egy egyszerű kép létrehozása is meglehetősen összetett folyamat. A 3D technológia előnyei elsősorban részletesen kidolgozott ábrázolások megvalósításánál domborodnak ki." />
         </RouterLink>
         <RouterLink to="#">
