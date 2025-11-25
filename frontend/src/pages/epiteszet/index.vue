@@ -9,17 +9,17 @@
         <BaseTitleCard image="../../public/Epiteszet/konyhapult.jpg" title="Konyhapult" :link="{name: 'epiteszet-konyhapult'}" />
         <BaseTitleCard image="../../public/Epiteszet/furdoszobapult.jpg" title="Fürdőszobapult" :link="{name: 'epiteszet-furdoszobapult'}" />
         <BaseTitleCard image="../../public/Epiteszet/lepcsoburkolat.jpg" title="Lépcsőburkolat" :link="{name: 'epiteszet-lepcsoburkolat'}" />
-        <BaseTitleCard image="../../public/Epiteszet/kerites-fedko.jpg" title="Kerítés fedkő" :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Epiteszet/kokorlat.jpg" title="Kőkorlát" :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Epiteszet/kandallo.jpg" title="Kandalló" :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Epiteszet/padloburkolat.jpg" title="Padlóburkolat" :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Epiteszet/kulteri-burkolat.jpg" title="Kültéri burkolat" :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Epiteszet/homlokzat-burkolat.jpg" title="Homlokzat burkolat" :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Epiteszet/medence-szegelyko.jpg" title="Medence szegélykő" :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Epiteszet/kobutor.jpg" title="Kőbútor" :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Epiteszet/emlekmu.jpg" title="Emlékmű" :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Epiteszet/szokokut.jpg" title="Szökőkút" :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Epiteszet/specialis-kotermek.jpg" title="Speciális kőtermék" :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Epiteszet/kerites-fedko.jpg" title="Kerítés fedkő" :link="{name: 'epiteszet-keritesfedko'}" />
+        <BaseTitleCard image="../../public/Epiteszet/kokorlat.jpg" title="Kőkorlát" :link="{name: 'epiteszet-kokorlat'}" />
+        <BaseTitleCard image="../../public/Epiteszet/kandallo.jpg" title="Kandalló" :link="{name: 'epiteszet-kandallo'}" />
+        <BaseTitleCard image="../../public/Epiteszet/padloburkolat.jpg" title="Padlóburkolat" :link="{name: 'epiteszet-padloburkolat'}" />
+        <BaseTitleCard image="../../public/Epiteszet/kulteri-burkolat.jpg" title="Kültéri burkolat" :link="{name: 'epiteszet-kulteriburkolat'}" />
+        <BaseTitleCard image="../../public/Epiteszet/homlokzat-burkolat.jpg" title="Homlokzat burkolat" :link="{name: 'epiteszet-homlokzatburkolat'}" />
+        <BaseTitleCard image="../../public/Epiteszet/medence-szegelyko.jpg" title="Medence szegélykő" :link="{name: 'epiteszet-medenceszegelyko'}" />
+        <BaseTitleCard image="../../public/Epiteszet/kobutor.jpg" title="Kőbútor" :link="{name: 'epiteszet-kobutor'}" />
+        <BaseTitleCard image="../../public/Epiteszet/emlekmu.jpg" title="Emlékmű" :link="{name: 'epiteszet-emlekmu'}" />
+        <BaseTitleCard image="../../public/Epiteszet/szokokut.jpg" title="Szökőkút" :link="{name: 'epiteszet-szokokut'}" />
+        <BaseTitleCard image="../../public/Epiteszet/specialis-kotermek.jpg" title="Speciális kőtermék" :link="{name: 'epiteszet-specialiskotermek'}" />
       </div>
     </div>
 

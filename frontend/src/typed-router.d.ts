@@ -20,9 +20,20 @@ declare module 'vue-router/auto-routes' {
   export interface RouteNamedMap {
     'home': RouteRecordInfo<'home', '/', Record<never, never>, Record<never, never>>,
     'epiteszet': RouteRecordInfo<'epiteszet', '/epiteszet', Record<never, never>, Record<never, never>>,
+    'epiteszet-emlekmu': RouteRecordInfo<'epiteszet-emlekmu', '/epiteszet/emlekmu', Record<never, never>, Record<never, never>>,
     'epiteszet-furdoszobapult': RouteRecordInfo<'epiteszet-furdoszobapult', '/epiteszet/furdoszobapult', Record<never, never>, Record<never, never>>,
+    'epiteszet-homlokzatburkolat': RouteRecordInfo<'epiteszet-homlokzatburkolat', '/epiteszet/homlokzat-burkolat', Record<never, never>, Record<never, never>>,
+    'epiteszet-kandallo': RouteRecordInfo<'epiteszet-kandallo', '/epiteszet/kandallo', Record<never, never>, Record<never, never>>,
+    'epiteszet-keritesfedko': RouteRecordInfo<'epiteszet-keritesfedko', '/epiteszet/kerites-fedko', Record<never, never>, Record<never, never>>,
+    'epiteszet-kobutor': RouteRecordInfo<'epiteszet-kobutor', '/epiteszet/kobutor', Record<never, never>, Record<never, never>>,
+    'epiteszet-kokorlat': RouteRecordInfo<'epiteszet-kokorlat', '/epiteszet/kokorlat', Record<never, never>, Record<never, never>>,
     'epiteszet-konyhapult': RouteRecordInfo<'epiteszet-konyhapult', '/epiteszet/konyhapult', Record<never, never>, Record<never, never>>,
+    'epiteszet-kulteriburkolat': RouteRecordInfo<'epiteszet-kulteriburkolat', '/epiteszet/kulteri-burkolat', Record<never, never>, Record<never, never>>,
     'epiteszet-lepcsoburkolat': RouteRecordInfo<'epiteszet-lepcsoburkolat', '/epiteszet/lepcsoburkolat', Record<never, never>, Record<never, never>>,
+    'epiteszet-medenceszegelyko': RouteRecordInfo<'epiteszet-medenceszegelyko', '/epiteszet/medence-szegelyko', Record<never, never>, Record<never, never>>,
+    'epiteszet-padloburkolat': RouteRecordInfo<'epiteszet-padloburkolat', '/epiteszet/padloburkolat', Record<never, never>, Record<never, never>>,
+    'epiteszet-specialiskotermek': RouteRecordInfo<'epiteszet-specialiskotermek', '/epiteszet/specialis-kotermek', Record<never, never>, Record<never, never>>,
+    'epiteszet-szokokut': RouteRecordInfo<'epiteszet-szokokut', '/epiteszet/szokokut', Record<never, never>, Record<never, never>>,
     'sirko': RouteRecordInfo<'sirko', '/sirko', Record<never, never>, Record<never, never>>,
     'akcios-sirko': RouteRecordInfo<'akcios-sirko', '/sirko/akcios-sirko', Record<never, never>, Record<never, never>>,
     'dupla-sirko': RouteRecordInfo<'dupla-sirko', '/sirko/dupla-sirko', Record<never, never>, Record<never, never>>,
@@ -72,16 +83,60 @@ declare module 'vue-router/auto-routes' {
       routes: 'epiteszet'
       views: never
     }
+    'src/pages/epiteszet/emlekmu/index.vue': {
+      routes: 'epiteszet-emlekmu'
+      views: never
+    }
     'src/pages/epiteszet/furdoszobapult/index.vue': {
       routes: 'epiteszet-furdoszobapult'
+      views: never
+    }
+    'src/pages/epiteszet/homlokzat-burkolat/index.vue': {
+      routes: 'epiteszet-homlokzatburkolat'
+      views: never
+    }
+    'src/pages/epiteszet/kandallo/index.vue': {
+      routes: 'epiteszet-kandallo'
+      views: never
+    }
+    'src/pages/epiteszet/kerites-fedko/index.vue': {
+      routes: 'epiteszet-keritesfedko'
+      views: never
+    }
+    'src/pages/epiteszet/kobutor/index.vue': {
+      routes: 'epiteszet-kobutor'
+      views: never
+    }
+    'src/pages/epiteszet/kokorlat/index.vue': {
+      routes: 'epiteszet-kokorlat'
       views: never
     }
     'src/pages/epiteszet/konyhapult/index.vue': {
       routes: 'epiteszet-konyhapult'
       views: never
     }
+    'src/pages/epiteszet/kulteri-burkolat/index.vue': {
+      routes: 'epiteszet-kulteriburkolat'
+      views: never
+    }
     'src/pages/epiteszet/lepcsoburkolat/index.vue': {
       routes: 'epiteszet-lepcsoburkolat'
+      views: never
+    }
+    'src/pages/epiteszet/medence-szegelyko/index.vue': {
+      routes: 'epiteszet-medenceszegelyko'
+      views: never
+    }
+    'src/pages/epiteszet/padloburkolat/index.vue': {
+      routes: 'epiteszet-padloburkolat'
+      views: never
+    }
+    'src/pages/epiteszet/specialis-kotermek/index.vue': {
+      routes: 'epiteszet-specialiskotermek'
+      views: never
+    }
+    'src/pages/epiteszet/szokokut/index.vue': {
+      routes: 'epiteszet-szokokut'
       views: never
     }
     'src/pages/sirko/index.vue': {
