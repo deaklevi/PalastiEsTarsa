@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TombstoneSeeder::class,
             AccessorySeeder::class,
-            ArchitectureSeeder::class
+            ArchitectureSeeder::class,
+            WorkSeeder::class,
         ]);
     }
 }
