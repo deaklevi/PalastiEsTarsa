@@ -6,8 +6,8 @@
       </h2>
     </div>
 
-    <div class="flex flex-col items-center xl:items-start mt-5 md:mt-10 xl:flex-row xl:justify-between lg:mx-12">
-      <div class="max-w-[600px] mb-24 md:mb-52  mx-5">
+    <div class="flex flex-col items-center xl:items-start mt-5 md:mt-10 xl:flex-row xl:justify-between lg:mx-12 mb-24 md:mb-52">
+      <div class="max-w-[600px] mx-5">
         <p class="ml-5">
           A <span class="text-orange-600 font-semibold">szolgáltatások</span> oldalon bemutatjuk a síremlék és egyéb építészeti munkálatokhoz tartozó tevékenységi körünket, amivel professzionálisan eleget tehetünk az egyre inkább gyakori különleges igényeknek. Ehhez rendelkezésre álnak megfelelő hardverek, szoftverek és a nélkülözhetetlen szakmai potencia.
           <br><br>
