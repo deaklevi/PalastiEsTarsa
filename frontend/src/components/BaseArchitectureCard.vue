@@ -15,7 +15,7 @@
           <img :src="baseUrl + item.image_url" :alt="item.name" class="min-w-full max-h-full object-contain border-2 border-orange-600" />
         </div>
         <h5 class="text-sm text-center break-words">
-          <span class="text-orange-600 font-semibold">{{ item.id }}</span> | {{ item.name }}
+          <span class="text-orange-600 font-semibold">{{ item.order }}</span> | {{ item.name }}
         </h5>
       </div>
     </div>
