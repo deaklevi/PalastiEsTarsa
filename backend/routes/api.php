@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccessoriseController;
 use App\Http\Controllers\AccessoryController;
 use App\Http\Controllers\ArchitectureController;
+use App\Http\Controllers\StoneController;
 use App\Http\Controllers\TombstoneController;
 use App\Http\Controllers\WorkController;
 use Illuminate\Http\Request;
@@ -27,3 +28,4 @@ Route::apiResource('tombstones', TombstoneController::class);
 Route::apiResource('accessories', AccessoryController::class);
 Route::apiResource('architectures', ArchitectureController::class);
 Route::apiResource('works', WorkController::class);
+Route::apiResource('stones', StoneController::class);
