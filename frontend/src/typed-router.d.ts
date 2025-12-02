@@ -34,6 +34,7 @@ declare module 'vue-router/auto-routes' {
     'epiteszet-padloburkolat': RouteRecordInfo<'epiteszet-padloburkolat', '/epiteszet/padloburkolat', Record<never, never>, Record<never, never>>,
     'epiteszet-specialiskotermek': RouteRecordInfo<'epiteszet-specialiskotermek', '/epiteszet/specialis-kotermek', Record<never, never>, Record<never, never>>,
     'epiteszet-szokokut': RouteRecordInfo<'epiteszet-szokokut', '/epiteszet/szokokut', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta': RouteRecordInfo<'ko-anyagminta', '/ko-anyagmintak', Record<never, never>, Record<never, never>>,
     'sirko': RouteRecordInfo<'sirko', '/sirko', Record<never, never>, Record<never, never>>,
     'akcios-sirko': RouteRecordInfo<'akcios-sirko', '/sirko/akcios-sirko', Record<never, never>, Record<never, never>>,
     'dupla-sirko': RouteRecordInfo<'dupla-sirko', '/sirko/dupla-sirko', Record<never, never>, Record<never, never>>,
@@ -141,6 +142,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/epiteszet/szokokut/index.vue': {
       routes: 'epiteszet-szokokut'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/index.vue': {
+      routes: 'ko-anyagminta'
       views: never
     }
     'src/pages/sirko/index.vue': {
