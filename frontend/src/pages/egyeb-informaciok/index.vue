@@ -129,7 +129,6 @@
 
 <script>
 import BaseLayout from '@layouts/BaseLayout.vue'
-import BaseInfoCard from '@components/BaseInfoCard.vue'
 import BaseMoreInfoCard from '@components/BaseMoreInfoCard.vue';
 
 export default {
@@ -144,8 +143,8 @@ export default {
 {
   "name": "egyeb-informaciok",
   "meta": {
-    "title": "Sírfelirat – Palásti és Társa Kft.",
-    "description": "A sírfelirat a sírhely személyessé tételére szolgál. Legyen az személynév, becenév, egy gondolat vagy idézet. A kőbe vésett betű ugyan olyan örök, mint maga a kő. Nem csak a jelennek, hanem a jövőnek is szól. Néhány évtizeddel ezelőtt, még mindig csak kézi szerszámok segítségével vésték, faragták a betűket. Az új technológiáknak köszönhetően több gépesített módszer is létezik, de a legpraktikusabb az un. „homokfújt”, amit cégünk is alkalmaz."
+    "title": "Egyéb információk – Palásti és Társa Kft.",
+    "description": "Miért gránit? Amit tudni kell róla: - Vulkáni eredetű természetes kőzet. Természeténél fogva rendkívül kemény, ezért a megmunkálása után felülete örök életű (lásd: egyiptomi obeliszkek). Fizikai tulajdonságait megőrzi, nem vetemedik, nem reped, nem korrodálódik és mérsékelt nedvszívó hatású. Savnak és lúgnak ellenáll. Fent említett okok miatt minden gránitból készült termék örök életű..."
   }
 }
 </route>

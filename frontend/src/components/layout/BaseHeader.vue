@@ -12,7 +12,7 @@
       <RouterLink :to="{name: 'szolgaltatasok'}" class="hover:text-orange-600 transition-colors duration-300">Szolgáltatások</RouterLink>
       <RouterLink :to="{name: 'ko-anyagminta'}" class="hover:text-orange-600 transition-colors duration-300">Kő anyagminták</RouterLink>
       <RouterLink :to="{name: 'egyeb-informaciok'}" class="hover:text-orange-600 transition-colors duration-300">Egyéb információk</RouterLink>
-      <RouterLink to="#" class="hover:text-orange-600 transition-colors duration-300">Kapcsolat</RouterLink>
+      <RouterLink :to="{name: 'kapcsolat'}" class="hover:text-orange-600 transition-colors duration-300">Kapcsolat</RouterLink>
       <RouterLink to="#" class="text-orange-600 hover:text-white transition-colors duration-300">Ajánlatkérés</RouterLink>
     </div>
 
@@ -33,7 +33,7 @@
     <RouterLink :to="{name: 'szolgaltatasok'}">Szolgáltatások</RouterLink>
     <RouterLink :to="{name: 'ko-anyagminta'}">Kő anyagminták</RouterLink>
     <RouterLink :to="{name: 'egyeb-informaciok'}">Egyéb információk</RouterLink>
-    <RouterLink to="#">Kapcsolat</RouterLink>
+    <RouterLink :to="{name: 'kapcsolat'}">Kapcsolat</RouterLink>
     <RouterLink to="#">Ajánlatkérés</RouterLink>
   </div>
 </template>
