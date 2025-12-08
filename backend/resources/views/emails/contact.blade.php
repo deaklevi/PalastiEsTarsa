@@ -1,12 +1,12 @@
-<x-mail::message>
-# Introduction
+@component('mail::message')
+# Új ajánlatkérés érkezett
 
-The body of your message.
+**Név:** {{ $data['name'] }}  
+**Email:** {{ $data['email'] }}  
+**Tárgy:** {{ $data['subject'] }}
 
-<x-mail::button :url="''">
-Button Text
-</x-mail::button>
+---
 
-Thanks,<br>
-{{ config('app.name') }}
-</x-mail::message>
+{{ $data['message'] }}
+
+@endcomponent
