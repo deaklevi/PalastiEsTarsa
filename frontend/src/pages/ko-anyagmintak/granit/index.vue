@@ -6,16 +6,16 @@
     </div>
     <div class="flex flex-col items-center mx-5 md:mx-12 mb-24 md:mb-52">
       <div class="mt-24 md:mt-52 flex flex-wrap justify-center gap-5 max-w-[1500px]">
-        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/feher.jpg" title="Fehér" :link="{name: 'ko-anyagminta-anyagtar'}" />
-        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/sarga.jpg" title="Sárga" :link="{name: 'ko-anyagminta-anyagtar'}" />
-        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/barna.jpg" title="Barna" :link="{name: 'ko-anyagminta-anyagtar'}" />
-        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/voros.jpg" title="Vörös" :link="{name: 'ko-anyagminta-anyagtar'}" />
-        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/rozsaszin.jpg" title="Rózsaszín" :link="{name: 'ko-anyagminta-anyagtar'}" />
-        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/zold.jpg" title="Zöld" :link="{name: 'ko-anyagminta-anyagtar'}" />
-        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/szurke.jpg" title="Szürke" :link="{name: 'ko-anyagminta-anyagtar'}" />
-        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/fekete.jpg" title="Fekete" :link="{name: 'ko-anyagminta-anyagtar'}" />
-        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/kek.jpg" title="Kék" :link="{name: 'ko-anyagminta-anyagtar'}" />
-        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/multicolor.jpg" title="Multicolor" :link="{name: 'ko-anyagminta-anyagtar'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/feher.jpg" title="Fehér" :link="{name: 'ko-anyagminta-feher-granit'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/sarga.jpg" title="Sárga" :link="{name: 'ko-anyagminta-sarga-granit'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/barna.jpg" title="Barna" :link="{name: 'ko-anyagminta-barna-granit'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/voros.jpg" title="Vörös" :link="{name: 'ko-anyagminta-voros-granit'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/rozsaszin.jpg" title="Rózsaszín" :link="{name: 'ko-anyagminta-rozsaszin-granit'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/zold.jpg" title="Zöld" :link="{name: 'ko-anyagminta-zold-granit'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/szurke.jpg" title="Szürke" :link="{name: 'ko-anyagminta-szurke-granit'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/fekete.jpg" title="Fekete" :link="{name: 'ko-anyagminta-fekete-granit'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/kek.jpg" title="Kék" :link="{name: 'ko-anyagminta-kek-granit'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/Granit/multicolor.jpg" title="Multicolor" :link="{name: 'ko-anyagminta-multicolor-granit'}" />
       </div>
     </div>
   </BaseLayout>

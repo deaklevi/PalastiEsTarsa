@@ -8,10 +8,10 @@
       <div class="mt-24 md:mt-52 flex flex-wrap justify-center gap-5 max-w-[1500px]">
         <BaseTitleCard image="../../public/Ko-anyagminta/anyagtar.jpg" title="Anyagtár" :link="{name: 'ko-anyagminta-anyagtar'}" />
         <BaseTitleCard image="../../public/Ko-anyagminta/granit.jpg" title="Gránit"  :link="{name: 'ko-anyagminta-granit'}" />
-        <BaseTitleCard image="../../public/Ko-anyagminta/marvany.jpg" title="Márvány"  :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Ko-anyagminta/meszko.jpg" title="Mészkő"  :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Ko-anyagminta/kvarcit.jpg" title="Kvarcit"  :link="{name: 'urna-sirko'}" />
-        <BaseTitleCard image="../../public/Ko-anyagminta/onyx.jpg" title="Onyx"  :link="{name: 'urna-sirko'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/marvany.jpg" title="Márvány"  :link="{name: 'ko-anyagminta-marvany'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/meszko.jpg" title="Mészkő"  :link="{name: 'ko-anyagminta-meszko'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/kvarcit.jpg" title="Kvarcit"  :link="{name: 'ko-anyagminta-kvarcit'}" />
+        <BaseTitleCard image="../../public/Ko-anyagminta/onyx.jpg" title="Onyx"  :link="{name: 'ko-anyagminta-onyx'}" />
       </div>
     </div>
   </BaseLayout>

@@ -37,6 +37,38 @@ declare module 'vue-router/auto-routes' {
     'ko-anyagminta': RouteRecordInfo<'ko-anyagminta', '/ko-anyagmintak', Record<never, never>, Record<never, never>>,
     'ko-anyagminta-anyagtar': RouteRecordInfo<'ko-anyagminta-anyagtar', '/ko-anyagmintak/anyagtar', Record<never, never>, Record<never, never>>,
     'ko-anyagminta-granit': RouteRecordInfo<'ko-anyagminta-granit', '/ko-anyagmintak/granit', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-barna-granit': RouteRecordInfo<'ko-anyagminta-barna-granit', '/ko-anyagmintak/granit/barna-granit', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-feher-granit': RouteRecordInfo<'ko-anyagminta-feher-granit', '/ko-anyagmintak/granit/feher-granit', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-fekete-granit': RouteRecordInfo<'ko-anyagminta-fekete-granit', '/ko-anyagmintak/granit/fekete-granit', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-kek-granit': RouteRecordInfo<'ko-anyagminta-kek-granit', '/ko-anyagmintak/granit/kek-granit', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-multicolor-granit': RouteRecordInfo<'ko-anyagminta-multicolor-granit', '/ko-anyagmintak/granit/multicolor-granit', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-rozsaszin-granit': RouteRecordInfo<'ko-anyagminta-rozsaszin-granit', '/ko-anyagmintak/granit/rozsaszin-granit', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-sarga-granit': RouteRecordInfo<'ko-anyagminta-sarga-granit', '/ko-anyagmintak/granit/sarga-granit', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-szurke-granit': RouteRecordInfo<'ko-anyagminta-szurke-granit', '/ko-anyagmintak/granit/szurke-granit', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-voros-granit': RouteRecordInfo<'ko-anyagminta-voros-granit', '/ko-anyagmintak/granit/voros-granit', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-zold-granit': RouteRecordInfo<'ko-anyagminta-zold-granit', '/ko-anyagmintak/granit/zold-granit', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-kvarcit': RouteRecordInfo<'ko-anyagminta-kvarcit', '/ko-anyagmintak/kvarcit', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-marvany': RouteRecordInfo<'ko-anyagminta-marvany', '/ko-anyagmintak/marvany', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-barna-marvany': RouteRecordInfo<'ko-anyagminta-barna-marvany', '/ko-anyagmintak/marvany/barna-marvany', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-carrarai-marvany': RouteRecordInfo<'ko-anyagminta-carrarai-marvany', '/ko-anyagmintak/marvany/carrarai-marvany', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-feher-marvany': RouteRecordInfo<'ko-anyagminta-feher-marvany', '/ko-anyagmintak/marvany/feher-marvany', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-fekete-marvany': RouteRecordInfo<'ko-anyagminta-fekete-marvany', '/ko-anyagmintak/marvany/fekete-marvany', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-kek-marvany': RouteRecordInfo<'ko-anyagminta-kek-marvany', '/ko-anyagmintak/marvany/kek-marvany', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-multicolor-marvany': RouteRecordInfo<'ko-anyagminta-multicolor-marvany', '/ko-anyagmintak/marvany/multicolor-marvany', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-rozsaszin-marvany': RouteRecordInfo<'ko-anyagminta-rozsaszin-marvany', '/ko-anyagmintak/marvany/rozsaszin-marvany', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-ruskicai-marvany': RouteRecordInfo<'ko-anyagminta-ruskicai-marvany', '/ko-anyagmintak/marvany/ruskicai-marvany', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-sarga-marvany': RouteRecordInfo<'ko-anyagminta-sarga-marvany', '/ko-anyagmintak/marvany/sarga-marvany', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-szurke-marvany': RouteRecordInfo<'ko-anyagminta-szurke-marvany', '/ko-anyagmintak/marvany/szurke-marvany', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-voros-marvany': RouteRecordInfo<'ko-anyagminta-voros-marvany', '/ko-anyagmintak/marvany/voros-marvany', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-zold-marvany': RouteRecordInfo<'ko-anyagminta-zold-marvany', '/ko-anyagmintak/marvany/zold-marvany', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-meszko': RouteRecordInfo<'ko-anyagminta-meszko', '/ko-anyagmintak/meszko', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-feher-meszko': RouteRecordInfo<'ko-anyagminta-feher-meszko', '/ko-anyagmintak/meszko/feher-meszko', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-homokszinu-meszko': RouteRecordInfo<'ko-anyagminta-homokszinu-meszko', '/ko-anyagmintak/meszko/homokszinu-meszko', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-horvat-meszko': RouteRecordInfo<'ko-anyagminta-horvat-meszko', '/ko-anyagmintak/meszko/horvat-meszko', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-jura-meszko': RouteRecordInfo<'ko-anyagminta-jura-meszko', '/ko-anyagmintak/meszko/jura-meszko', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-szurke-meszko': RouteRecordInfo<'ko-anyagminta-szurke-meszko', '/ko-anyagmintak/meszko/szurke-meszko', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-travertin-meszko': RouteRecordInfo<'ko-anyagminta-travertin-meszko', '/ko-anyagmintak/meszko/travertin-meszko', Record<never, never>, Record<never, never>>,
+    'ko-anyagminta-onyx': RouteRecordInfo<'ko-anyagminta-onyx', '/ko-anyagmintak/onyx', Record<never, never>, Record<never, never>>,
     'sirko': RouteRecordInfo<'sirko', '/sirko', Record<never, never>, Record<never, never>>,
     'akcios-sirko': RouteRecordInfo<'akcios-sirko', '/sirko/akcios-sirko', Record<never, never>, Record<never, never>>,
     'dupla-sirko': RouteRecordInfo<'dupla-sirko', '/sirko/dupla-sirko', Record<never, never>, Record<never, never>>,
@@ -156,6 +188,134 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/ko-anyagmintak/granit/index.vue': {
       routes: 'ko-anyagminta-granit'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/granit/barna-granit.vue': {
+      routes: 'ko-anyagminta-barna-granit'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/granit/feher-granit.vue': {
+      routes: 'ko-anyagminta-feher-granit'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/granit/fekete-granit.vue': {
+      routes: 'ko-anyagminta-fekete-granit'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/granit/kek-granit.vue': {
+      routes: 'ko-anyagminta-kek-granit'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/granit/multicolor-granit.vue': {
+      routes: 'ko-anyagminta-multicolor-granit'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/granit/rozsaszin-granit.vue': {
+      routes: 'ko-anyagminta-rozsaszin-granit'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/granit/sarga-granit.vue': {
+      routes: 'ko-anyagminta-sarga-granit'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/granit/szurke-granit.vue': {
+      routes: 'ko-anyagminta-szurke-granit'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/granit/voros-granit.vue': {
+      routes: 'ko-anyagminta-voros-granit'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/granit/zold-granit.vue': {
+      routes: 'ko-anyagminta-zold-granit'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/kvarcit/index.vue': {
+      routes: 'ko-anyagminta-kvarcit'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/marvany/index.vue': {
+      routes: 'ko-anyagminta-marvany'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/marvany/barna-marvany.vue': {
+      routes: 'ko-anyagminta-barna-marvany'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/marvany/carrarai-marvany.vue': {
+      routes: 'ko-anyagminta-carrarai-marvany'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/marvany/feher-marvany.vue': {
+      routes: 'ko-anyagminta-feher-marvany'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/marvany/fekete-marvany.vue': {
+      routes: 'ko-anyagminta-fekete-marvany'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/marvany/kek-marvany.vue': {
+      routes: 'ko-anyagminta-kek-marvany'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/marvany/multicolor-marvany.vue': {
+      routes: 'ko-anyagminta-multicolor-marvany'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/marvany/rozsaszin-marvany.vue': {
+      routes: 'ko-anyagminta-rozsaszin-marvany'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/marvany/ruskicai-marvany.vue': {
+      routes: 'ko-anyagminta-ruskicai-marvany'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/marvany/sarga-marvany.vue': {
+      routes: 'ko-anyagminta-sarga-marvany'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/marvany/szurke-marvany.vue': {
+      routes: 'ko-anyagminta-szurke-marvany'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/marvany/voros-marvany.vue': {
+      routes: 'ko-anyagminta-voros-marvany'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/marvany/zold-marvany.vue': {
+      routes: 'ko-anyagminta-zold-marvany'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/meszko/index.vue': {
+      routes: 'ko-anyagminta-meszko'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/meszko/feher-meszko.vue': {
+      routes: 'ko-anyagminta-feher-meszko'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/meszko/homokszinu-meszko.vue': {
+      routes: 'ko-anyagminta-homokszinu-meszko'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/meszko/horvat-meszko.vue': {
+      routes: 'ko-anyagminta-horvat-meszko'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/meszko/jura-meszko.vue': {
+      routes: 'ko-anyagminta-jura-meszko'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/meszko/szurke-meszko.vue': {
+      routes: 'ko-anyagminta-szurke-meszko'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/meszko/travertin-meszko.vue': {
+      routes: 'ko-anyagminta-travertin-meszko'
+      views: never
+    }
+    'src/pages/ko-anyagmintak/onyx/index.vue': {
+      routes: 'ko-anyagminta-onyx'
       views: never
     }
     'src/pages/sirko/index.vue': {
