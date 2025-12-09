@@ -31,3 +31,4 @@ Route::apiResource('architectures', ArchitectureController::class);
 Route::apiResource('works', WorkController::class);
 Route::apiResource('stones', StoneController::class);
 Route::post('/send-contact', [ContactController::class, 'send']);
+Route::post('/send-offer', [ContactController::class, 'sendOffer']);

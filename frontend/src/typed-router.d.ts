@@ -19,6 +19,7 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     'home': RouteRecordInfo<'home', '/', Record<never, never>, Record<never, never>>,
+    'ajanlatkeres': RouteRecordInfo<'ajanlatkeres', '/ajanlatkeres', Record<never, never>, Record<never, never>>,
     'egyeb-informaciok': RouteRecordInfo<'egyeb-informaciok', '/egyeb-informaciok', Record<never, never>, Record<never, never>>,
     'epiteszet': RouteRecordInfo<'epiteszet', '/epiteszet', Record<never, never>, Record<never, never>>,
     'epiteszet-emlekmu': RouteRecordInfo<'epiteszet-emlekmu', '/epiteszet/emlekmu', Record<never, never>, Record<never, never>>,
@@ -118,6 +119,10 @@ declare module 'vue-router/auto-routes' {
   export interface _RouteFileInfoMap {
     'src/pages/index.vue': {
       routes: 'home'
+      views: never
+    }
+    'src/pages/ajanlatkeres/index.vue': {
+      routes: 'ajanlatkeres'
       views: never
     }
     'src/pages/egyeb-informaciok/index.vue': {
