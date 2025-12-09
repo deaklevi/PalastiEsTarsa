@@ -91,11 +91,14 @@
           ></textarea>
         </div>
 
+        <!-- Küldés gomb loadinggal -->
         <button
           type="submit"
-          class="bg-orange-600 text-white font-semibold rounded-sm p-2 mt-4 hover:bg-orange-700"
+          :disabled="isLoading"
+          class="bg-orange-600 text-white font-semibold rounded-sm p-2 mt-4 hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Üzenet küldés
+          <span v-if="isLoading">Küldés...</span>
+          <span v-else>Üzenet küldés</span>
         </button>
       </form>
     </div>
@@ -127,12 +130,14 @@ const form = reactive({
   message: ''
 })
 
-// Floating üzenet állapot
+// Floating üzenet és loading állapot
 const showMessage = ref(false)
 const message = ref('')
 const messageClass = ref('bg-green-600 text-white')
+const isLoading = ref(false)
 
 const handleSubmit = async () => {
+  isLoading.value = true
   try {
     await contactStore.sendContact(form)
 
@@ -146,10 +151,6 @@ const handleSubmit = async () => {
     message.value = 'Üzenet sikeresen elküldve!'
     messageClass.value = 'bg-green-600 text-white'
     showMessage.value = true
-
-    setTimeout(() => {
-      showMessage.value = false
-    }, 2000)
   } catch (err) {
     console.error('Hiba a contact form küldésekor:', err)
 
@@ -157,7 +158,8 @@ const handleSubmit = async () => {
     message.value = 'Hiba történt a küldés során.'
     messageClass.value = 'bg-red-600 text-white'
     showMessage.value = true
-
+  } finally {
+    isLoading.value = false
     setTimeout(() => {
       showMessage.value = false
     }, 2000)
@@ -166,7 +168,6 @@ const handleSubmit = async () => {
 </script>
 
 <style>
-/* Fade animáció a floating üzenethez */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;

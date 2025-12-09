@@ -71,9 +71,15 @@
           <label class="mb-2 font-semibold text-white">Üzenet:</label>
           <textarea v-model="form.message" placeholder="Üzenet" class="w-full rounded-sm border-2 border-orange-600 p-2" rows="5"></textarea>
         </div>
-
-        <button type="submit" class="bg-orange-600 text-white font-semibold rounded-sm p-2 mt-4 hover:bg-orange-700">
-          Ajánlatkérés küldése
+        
+        <!-- Button -->
+        <button
+          type="submit"
+          :disabled="isLoading"
+          class="bg-orange-600 text-white font-semibold rounded-sm p-2 mt-4 hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <span v-if="isLoading">Küldés...</span>
+          <span v-else>Ajánlatkérés küldése</span>
         </button>
       </form>
     </div>
@@ -116,10 +122,12 @@ const form = reactive({
 const showMessage = ref(false)
 const message = ref('')
 const messageClass = ref('bg-green-600 text-white')
+const isLoading = ref(false) // <-- loading állapot
 
 const handleSubmit = async () => {
+  isLoading.value = true // küldés kezdete
   try {
-    await contactStore.sendOffer(form) // Új action
+    await contactStore.sendOffer(form) // Küldés
 
     // Form törlése
     Object.keys(form).forEach(key => form[key] = '')
@@ -128,10 +136,6 @@ const handleSubmit = async () => {
     message.value = 'Ajánlatkérés sikeresen elküldve!'
     messageClass.value = 'bg-green-600 text-white'
     showMessage.value = true
-
-    setTimeout(() => {
-      showMessage.value = false
-    }, 2000)
   } catch (err) {
     console.error('Hiba az ajánlatkérés küldésekor:', err)
 
@@ -139,7 +143,8 @@ const handleSubmit = async () => {
     message.value = 'Hiba történt a küldés során.'
     messageClass.value = 'bg-red-600 text-white'
     showMessage.value = true
-
+  } finally {
+    isLoading.value = false // küldés vége
     setTimeout(() => {
       showMessage.value = false
     }, 2000)
