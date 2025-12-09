@@ -17,7 +17,7 @@
           <br><br>
           Gépi, műszaki és szakmai felkészültségünknek köszönhetően /hozott anyagból - gránit, márvány, mészkő, homokkő/, bérmunkával is foglalkozunk, mint pl. kőtömb darabolása, tábla felületének kalibrálása, méretre vágása, szélezése, natúr felületek fényezése, rovátkolása, flammolása azaz égetése.
           <br><br>
-          <span class="text-orange-600 font-semibold">'Az oldalon takálható kártyák linkek! Rákattintva további részleteket láthat a szolgáltatásokról.'</span>
+          <span class="text-orange-600 font-semibold">'Az oldalon takálható képek linkek! Rákattintva további részleteket láthat a szolgáltatásokról.'</span>
         </p>
       </div>
       <div class="max-w-[800px]">
