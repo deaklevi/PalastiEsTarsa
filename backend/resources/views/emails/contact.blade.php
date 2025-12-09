@@ -1,5 +1,5 @@
 @component('mail::message')
-# Új ajánlatkérés érkezett
+# Új érdeklődő érkezett
 
 **Név:** {{ $data['name'] }}  
 **Email:** {{ $data['email'] }}  

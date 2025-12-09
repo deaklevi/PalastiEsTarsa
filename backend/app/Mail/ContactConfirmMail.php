@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactFormMail extends Mailable
+class ContactConfirmMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -19,8 +19,7 @@ class ContactFormMail extends Mailable
 
     public function build()
     {
-        return $this->subject('[Érdeklődő] ' . $this->data['subject'])
-                    ->replyTo($this->data['email'], $this->data['name'])
-                    ->markdown('emails.contact');
+        return $this->subject('Köszönjük az üzeneted!')
+                    ->view('emails.contact-confirm'); // HTML Blade sablon
     }
 }
