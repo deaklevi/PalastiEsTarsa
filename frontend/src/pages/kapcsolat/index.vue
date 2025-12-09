@@ -37,11 +37,11 @@
 
     <!-- Form fejléce -->
     <div class="flex flex-col items-center md:mx-12 mt-10">
-      <h2 class="text-xl font-bold w-full text-center md:text-left">Írjon nekünk</h2>
+      <h2 class="text-xl font-bold w-full text-center">Írjon nekünk</h2>
     </div>
 
     <!-- Kapcsolat form -->
-    <div class="bg-slate-950 md:w-full max-w-lg p-10 mx-auto rounded-md mt-5 md:mt-10 mb-24 md:mb-52 w-[90%]">
+    <div class="bg-slate-950 md:w-full max-w-lg p-10 mx-auto rounded-md mt-10 mb-24 md:mb-52 w-[90%]">
       <form @submit.prevent="handleSubmit" class="flex flex-col gap-4">
         <div class="flex flex-col">
           <label class="mb-2 font-semibold text-white" for="name">Név:</label>
