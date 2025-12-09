@@ -104,12 +104,13 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
 import { useContactStore } from '@stores/contactStore'
 import BaseLayout from '@layouts/BaseLayout.vue'
 
 const contactStore = useContactStore()
 
+// --- FORM ADATOK ---
 const form = reactive({
   name: '',
   email: '',
@@ -125,23 +126,41 @@ const form = reactive({
   message: ''
 })
 
+// --- LOCALSTORAGE VISSZATÖLTÉS ---
+const savedForm = localStorage.getItem('offerForm')
+if (savedForm) {
+  Object.assign(form, JSON.parse(savedForm))
+}
+
+// --- WATCH: FORM AUTOMATIKUS MENTÉSE LOCALSTORAGE-BA ---
+watch(form, (newVal) => {
+  localStorage.setItem('offerForm', JSON.stringify(newVal))
+}, { deep: true })
+
+// --- FLOATING MESSAGE ---
 const showMessage = ref(false)
 const message = ref('')
 const messageClass = ref('bg-green-600 text-white')
-const isLoading = ref(false) // <-- loading állapot
+const isLoading = ref(false)
 
+// --- KÜLDÉS ---
 const handleSubmit = async () => {
-  isLoading.value = true // küldés kezdete
-  try {
-    await contactStore.sendOffer(form) // Küldés
+  isLoading.value = true
 
-    // Form törlése
+  try {
+    await contactStore.sendOffer(form)
+
+    // Form ürítés
     Object.keys(form).forEach(key => form[key] = '')
+
+    // LocalStorage törlése
+    localStorage.removeItem('offerForm')
 
     // Siker üzenet
     message.value = 'Ajánlatkérés sikeresen elküldve!'
     messageClass.value = 'bg-green-600 text-white'
     showMessage.value = true
+
   } catch (err) {
     console.error('Hiba az ajánlatkérés küldésekor:', err)
 
@@ -149,14 +168,16 @@ const handleSubmit = async () => {
     message.value = 'Hiba történt a küldés során.'
     messageClass.value = 'bg-red-600 text-white'
     showMessage.value = true
+
   } finally {
-    isLoading.value = false // küldés vége
+    isLoading.value = false
     setTimeout(() => {
       showMessage.value = false
     }, 2000)
   }
 }
 </script>
+
 
 <style>
 /* Fade animáció a floating üzenethez */

@@ -117,12 +117,13 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
 import { useContactStore } from '@stores/contactStore'
 import BaseLayout from '@layouts/BaseLayout.vue'
 
 const contactStore = useContactStore()
 
+// --- FORM ADATOK ---
 const form = reactive({
   name: '',
   email: '',
@@ -130,27 +131,43 @@ const form = reactive({
   message: ''
 })
 
-// Floating üzenet és loading állapot
+// --- LOCALSTORAGE VISSZATÖLTÉS ---
+const savedForm = localStorage.getItem('contactForm')
+if (savedForm) {
+  Object.assign(form, JSON.parse(savedForm))
+}
+
+// --- WATCH: FORM AUTOMATIKUS MENTÉSE LOCALSTORAGE-BA ---
+watch(form, (newVal) => {
+  localStorage.setItem('contactForm', JSON.stringify(newVal))
+}, { deep: true })
+
+// --- Floating üzenet + loading ---
 const showMessage = ref(false)
 const message = ref('')
 const messageClass = ref('bg-green-600 text-white')
 const isLoading = ref(false)
 
+// --- KÜLDÉS ---
 const handleSubmit = async () => {
   isLoading.value = true
   try {
     await contactStore.sendContact(form)
 
-    // Form törlése
+    // Form ürítés
     form.name = ''
     form.email = ''
     form.subject = ''
     form.message = ''
 
+    // LocalStorage törlése
+    localStorage.removeItem('contactForm')
+
     // Siker üzenet
     message.value = 'Üzenet sikeresen elküldve!'
     messageClass.value = 'bg-green-600 text-white'
     showMessage.value = true
+
   } catch (err) {
     console.error('Hiba a contact form küldésekor:', err)
 
@@ -158,6 +175,7 @@ const handleSubmit = async () => {
     message.value = 'Hiba történt a küldés során.'
     messageClass.value = 'bg-red-600 text-white'
     showMessage.value = true
+
   } finally {
     isLoading.value = false
     setTimeout(() => {
@@ -166,6 +184,7 @@ const handleSubmit = async () => {
   }
 }
 </script>
+
 
 <style>
 .fade-enter-active,
