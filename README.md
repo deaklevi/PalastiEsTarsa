@@ -46,12 +46,19 @@ Ezzel az indítással mobilon is tesztelhető lesz a webalkalmazás.
 
 1. Backend
 
-    php artisan migrate:fresh --seed
+    composer install
+    copy .env.example .env (Beállítani az adatbázist MYSQL)
+    php artisan key:generate
     php artisan storage:link
+    php artisan config:clear
+    php artisan config:cache
+    php artisan migrate
+    php artisan migrate:fresh --seed
     php artisan serve --host=0.0.0.0 --port=8000
 
 2. Frontend
 
+    npm install
     npm run dev
 
 ## 📦 Technológiák
