@@ -4,6 +4,7 @@ export default {
       "./index.html",
       "./formkit.config.js",
       "./src/**/*.{vue,js,ts,jsx,tsx}",
+      "./node_modules/@formkit/themes/tailwindcss/**" // <- ez kell, hogy a Tailwind a FormKit classokat is feldolgozza
     ],
     theme: {
       extend: {},
@@ -15,3 +16,4 @@ export default {
         require('@tailwindcss/typography')
     ],
   }
+  
