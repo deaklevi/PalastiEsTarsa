@@ -1,12 +1,16 @@
 <template>
   <BaseLayout>
     <!-- Ajánlatkérés fejléc -->
-    <div class="flex flex-col items-center md:mx-12 mt-10">
-      <h2 class="text-xl font-bold w-full text-center md:text-left">Ajánlatkérés</h2>
+    <div class="flex flex-col items-center md:mx-12">
+      <h2 class="mt-5 md:mt-10 text-xl font-bold w-full text-center md:text-left">Ajánlatkérés</h2>
+    </div>
+
+    <div class="flex flex-col items-center md:mx-12">
+      <p class="mt-5 md:mt-10 text-base mx-10 text-left"> Az alábbbi űrlap alapvetően síremlék árajánlat kérésére vontakozik. Abban az esetben, ha más, egyéb termék iránt érdeklődik, a kapcsolat oldalon lévő üzenetdobozban elküldheti ajánlatkérését vagy közvetlenül megkereshet minket e-mail-en vagy telefonon. </p>
     </div>
 
     <!-- Ajánlatkérés form -->
-    <div class="bg-slate-950 md:w-full max-w-lg p-10 mx-auto rounded-md mt-5 md:mt-10 mb-24 md:mb-52 w-[90%]">
+    <div class="bg-slate-950 md:w-full max-w-lg p-10 mx-auto rounded-md mt-20 mb-24 md:mb-52 w-[90%]">
       <form @submit.prevent="handleSubmit" class="flex flex-col gap-4">
         <div class="flex flex-col">
           <label class="mb-2 font-semibold text-white">Név:</label>
@@ -40,7 +44,7 @@
 
         <div class="flex flex-col">
           <label class="mb-2 font-semibold text-white">Alsórész (kódszám):</label>
-          <input v-model="form.base_code" type="text" placeholder="Kódszám" class="w-full rounded-sm border-2 border-orange-600 p-2" />
+          <input v-model="form.base_code" type="text" placeholder="Kódszám" class="w-full rounded-sm border-2 border-orange-600 p-2"/>
         </div>
 
         <div class="flex flex-col">

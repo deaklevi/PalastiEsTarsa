@@ -13,7 +13,7 @@
       <RouterLink :to="{name: 'ko-anyagminta'}" class="hover:text-orange-600 transition-colors duration-300">Kő anyagminták</RouterLink>
       <RouterLink :to="{name: 'egyeb-informaciok'}" class="hover:text-orange-600 transition-colors duration-300">Egyéb információk</RouterLink>
       <RouterLink :to="{name: 'kapcsolat'}" class="hover:text-orange-600 transition-colors duration-300">Kapcsolat</RouterLink>
-      <RouterLink :to="{name: 'ajanlatkeres'}" class="text-orange-600 hover:text-white transition-colors duration-300">Ajánlatkérés</RouterLink>
+      <RouterLink :to="{name: 'ajanlatkeres'}" class="hover:text-orange-600 transition-colors duration-300">Ajánlatkérés</RouterLink>
     </div>
 
     <!-- Hamburger (mobil nézet) -->
