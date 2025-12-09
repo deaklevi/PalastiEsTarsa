@@ -12,6 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        'send-contact', // vagy '/send-contact' attól függően, hogyan van a route
     ];
 }
