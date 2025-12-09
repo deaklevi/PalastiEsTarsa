@@ -7,7 +7,7 @@
     </div>
 
     <div class="flex flex-col items-center xl:items-start mt-5 md:mt-10 xl:flex-row xl:justify-between lg:mx-12 mb-24 md:mb-52">
-      <div class="max-w-[600px] mx-5">
+      <div class="max-w-[600px] mx-5 mb-24 md:mb-52">
         <p class="ml-5">
           A <span class="text-orange-600 font-semibold">szolgáltatások</span> oldalon bemutatjuk a síremlék és egyéb építészeti munkálatokhoz tartozó tevékenységi körünket, amivel professzionálisan eleget tehetünk az egyre inkább gyakori különleges igényeknek. Ehhez rendelkezésre álnak megfelelő hardverek, szoftverek és a nélkülözhetetlen szakmai potencia.
           <br><br>
@@ -15,7 +15,9 @@
           <br><br>
           Lézergravírozás gránitba, teljesen más technológiát /specifikus mechanizmust/ igényel, mint más anyagba. Alapvető követelmény a gravírozandó kép minél nagyobb, megfelelő minőségű felbontása.
           <br><br>
-          Gépi, műszaki és szakmai felkészültségünknek köszönhetően /hozott anyagból - gránit, márvány, mészkő, homokkő/, bérmunkával is foglalkozunk, mint pl. kőtömb darabolása, tábla felületének kalibrálása, méretre vágása, szélezése, natúr felületek fényezése, rovátkolása, flammolása azaz égetése. 
+          Gépi, műszaki és szakmai felkészültségünknek köszönhetően /hozott anyagból - gránit, márvány, mészkő, homokkő/, bérmunkával is foglalkozunk, mint pl. kőtömb darabolása, tábla felületének kalibrálása, méretre vágása, szélezése, natúr felületek fényezése, rovátkolása, flammolása azaz égetése.
+          <br><br>
+          <span class="text-orange-600 font-semibold">"Az oldalon takálható kártyák linkek! Rákattintva további részleteket láthat a szolgáltatásokról."</span>
         </p>
       </div>
       <div class="max-w-[800px]">
