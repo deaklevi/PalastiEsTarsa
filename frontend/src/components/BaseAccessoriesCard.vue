@@ -73,7 +73,7 @@ export default {
     return {
       loading: true,
       selectedItem: null,
-      baseUrl: 'http://192.168.1.83:8000',
+      baseUrl: import.meta.env.VITE_APP_URL,
       currentIndex: 0,
     }
   },

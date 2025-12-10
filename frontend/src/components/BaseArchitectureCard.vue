@@ -72,7 +72,7 @@ export default {
     return {
       loading: true,
       selectedItem: null,
-      baseUrl: 'http://192.168.1.83:8000', // állítsd a saját backend URL-edre
+      baseUrl: import.meta.env.VITE_APP_URL,
       currentIndex: 0,
     }
   },
