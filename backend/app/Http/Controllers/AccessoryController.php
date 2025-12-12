@@ -29,21 +29,21 @@ class AccessoryController extends Controller
      */
     public function store(StoreAccessoryRequest $request)
     {
-        $data = $request->validated();
-        $newOrder = $data['order'];
+        //$data = $request->validated();
+        //$newOrder = $data['order'];
 
-        $accessory = DB::transaction(function () use ($data, $request, $newOrder) {
-            Accessory::where('order', '>=', $newOrder)->increment('order');
+        //$accessory = DB::transaction(function () use ($data, $request, $newOrder) {
+        //    Accessory::where('order', '>=', $newOrder)->increment('order');
 
-            if ($request->hasFile('image')) {
-                $path = $request->file('image')->store('accessories', 'public');
-                $data['image_url'] = '/storage/' . $path;
-            }
+        //    if ($request->hasFile('image')) {
+        //        $path = $request->file('image')->store('accessories', 'public');
+        //        $data['image_url'] = '/storage/' . $path;
+        //    }
 
-            return Accessory::create($data);
-        });
+        //    return Accessory::create($data);
+        //});
 
-        return new AccessoryResource($accessory);
+        //return new AccessoryResource($accessory);
     }
 
     /**
@@ -54,7 +54,7 @@ class AccessoryController extends Controller
      */
     public function show(Accessory $accessory)
     {
-        return new AccessoryResource($accessory);
+        //return new AccessoryResource($accessory);
     }
 
     /**
@@ -66,30 +66,30 @@ class AccessoryController extends Controller
      */
     public function update(UpdateAccessoryRequest $request, Accessory $accessory)
     {
-        $data = $request->validated();
-        $newOrder = $data['order'];
+        //$data = $request->validated();
+        //$newOrder = $data['order'];
 
-        DB::transaction(function () use ($data, $request, $newOrder, $accessory) {
-            if ($newOrder != $accessory->order) {
-                Accessory::where('order', '>=', $newOrder)
-                    ->where('id', '!=', $accessory->id)
-                    ->increment('order');
-            }
+        //DB::transaction(function () use ($data, $request, $newOrder, $accessory) {
+        //    if ($newOrder != $accessory->order) {
+        //        Accessory::where('order', '>=', $newOrder)
+        //            ->where('id', '!=', $accessory->id)
+        //            ->increment('order');
+        //    }
 
-            if ($request->hasFile('image')) {
-                if ($accessory->image_url) {
-                    $oldPath = ltrim(str_replace('/storage/', '', $accessory->image_url), '/');
-                    Storage::disk('public')->delete($oldPath);
-                }
+        //    if ($request->hasFile('image')) {
+        //        if ($accessory->image_url) {
+        //            $oldPath = ltrim(str_replace('/storage/', '', $accessory->image_url), '/');
+        //            Storage::disk('public')->delete($oldPath);
+        //        }
 
-                $path = $request->file('image')->store('accessories', 'public');
-                $data['image_url'] = '/storage/' . $path;
-            }
+        //        $path = $request->file('image')->store('accessories', 'public');
+        //        $data['image_url'] = '/storage/' . $path;
+        //    }
 
-            $accessory->update($data);
-        });
+        //    $accessory->update($data);
+        //});
 
-        return new AccessoryResource($accessory);
+        //return new AccessoryResource($accessory);
     }
 
     /**
@@ -100,18 +100,18 @@ class AccessoryController extends Controller
      */
     public function destroy(Accessory $accessory)
     {
-        DB::transaction(function () use ($accessory) {
-            if ($accessory->image_url) {
-                $oldPath = ltrim(str_replace('/storage/', '', $accessory->image_url), '/');
-                Storage::disk('public')->delete($oldPath);
-            }
+        //DB::transaction(function () use ($accessory) {
+        //    if ($accessory->image_url) {
+        //        $oldPath = ltrim(str_replace('/storage/', '', $accessory->image_url), '/');
+        //        Storage::disk('public')->delete($oldPath);
+        //    }
 
-            $deletedOrder = $accessory->order;
-            $accessory->delete();
+        //    $deletedOrder = $accessory->order;
+        //    $accessory->delete();
 
-            Accessory::where('order', '>', $deletedOrder)->decrement('order');
-        });
+        //    Accessory::where('order', '>', $deletedOrder)->decrement('order');
+        //});
 
-        return response()->noContent();
+        //return response()->noContent();
     }
 }

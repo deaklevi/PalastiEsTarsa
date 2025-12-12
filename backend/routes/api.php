@@ -25,10 +25,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('tombstones', TombstoneController::class);
-Route::apiResource('accessories', AccessoryController::class);
-Route::apiResource('architectures', ArchitectureController::class);
-Route::apiResource('works', WorkController::class);
-Route::apiResource('stones', StoneController::class);
+Route::apiResource('tombstones', TombstoneController::class)->only(['index']);
+Route::apiResource('accessories', AccessoryController::class)->only(['index']);
+Route::apiResource('architectures', ArchitectureController::class)->only(['index']);
+Route::apiResource('works', WorkController::class)->only(['index']);
+Route::apiResource('stones', StoneController::class)->only(['index']);
 Route::post('/send-contact', [ContactController::class, 'send']);
 Route::post('/send-offer', [ContactController::class, 'sendOffer']);

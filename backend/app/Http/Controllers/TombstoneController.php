@@ -29,21 +29,21 @@ class TombstoneController extends Controller
      */
     public function store(StoreTombstoneRequest $request)
     {
-        $data = $request->validated();
-        $newOrder = $data['order'];
+        //$data = $request->validated();
+        //$newOrder = $data['order'];
 
-        $tombstone = DB::transaction(function () use ($data, $request, $newOrder){
-            Tombstone::where('order', '>=', $newOrder)->increment('order');
+        //$tombstone = DB::transaction(function () use ($data, $request, $newOrder){
+        //    Tombstone::where('order', '>=', $newOrder)->increment('order');
 
-            if ($request->hasFile('image')) {
-                $path = $request->file('image')->store('tombstones', 'public');
-                $data['image_url'] = '/storage/' . $path;
-            }
+        //    if ($request->hasFile('image')) {
+        //        $path = $request->file('image')->store('tombstones', 'public');
+        //        $data['image_url'] = '/storage/' . $path;
+        //    }
 
-            return Tombstone::create($data);
-        });
+        //    return Tombstone::create($data);
+        //});
 
-        return new TombstoneResource($tombstone);
+        //return new TombstoneResource($tombstone);
     }
 
     /**
@@ -54,7 +54,7 @@ class TombstoneController extends Controller
      */
     public function show(Tombstone $tombstone)
     {
-        return new TombstoneResource($tombstone);
+        //return new TombstoneResource($tombstone);
     }
 
     /**
@@ -66,30 +66,30 @@ class TombstoneController extends Controller
      */
     public function update(UpdateTombstoneRequest $request, Tombstone $tombstone)
     {
-        $data = $request->validated();
-        $newOrder = $data['order'];
+        //$data = $request->validated();
+        //$newOrder = $data['order'];
 
-        DB::transaction(function () use ($data, $request, $newOrder, $tombstone) {
-            if ($newOrder != $tombstone->order) {
-                Tombstone::where('order', '>=', $newOrder)
-                    ->where('id', '!=', $tombstone->id)
-                    ->increment('order');
-            }
+        //DB::transaction(function () use ($data, $request, $newOrder, $tombstone) {
+        //    if ($newOrder != $tombstone->order) {
+        //        Tombstone::where('order', '>=', $newOrder)
+        //            ->where('id', '!=', $tombstone->id)
+        //            ->increment('order');
+        //    }
 
-            if ($request->hasFile('image')) {
-                if ($tombstone->image_url) {
-                    $oldPath = ltrim(str_replace('/storage/', '', $tombstone->image_url), '/');
-                    Storage::disk('public')->delete($oldPath);
-                }
+        //    if ($request->hasFile('image')) {
+        //        if ($tombstone->image_url) {
+        //            $oldPath = ltrim(str_replace('/storage/', '', $tombstone->image_url), '/');
+        //            Storage::disk('public')->delete($oldPath);
+        //        }
 
-                $path = $request->file('image')->store('tombstones', 'public');
-                $data['image_url'] = '/storage/' . $path;
-            }
+        //        $path = $request->file('image')->store('tombstones', 'public');
+        //        $data['image_url'] = '/storage/' . $path;
+        //    }
 
-            $tombstone->update($data);
-        });
+        //    $tombstone->update($data);
+        //});
 
-        return new TombstoneResource($tombstone);
+        //return new TombstoneResource($tombstone);
     }
 
     /**
@@ -100,19 +100,19 @@ class TombstoneController extends Controller
      */
     public function destroy(Tombstone $tombstone)
     {
-        DB::transaction(function () use ($tombstone) {
-            if ($tombstone->image_url) {
-                $oldPath = ltrim(str_replace('/storage/', '', $tombstone->image_url), '/');
-                Storage::disk('public')->delete($oldPath);
-            }
+        //DB::transaction(function () use ($tombstone) {
+        //    if ($tombstone->image_url) {
+        //        $oldPath = ltrim(str_replace('/storage/', '', $tombstone->image_url), '/');
+        //        Storage::disk('public')->delete($oldPath);
+        //    }
 
-            $deletedOrder = $tombstone->order;
-            $tombstone->delete();
+        //    $deletedOrder = $tombstone->order;
+        //    $tombstone->delete();
 
-            Tombstone::where('order', '>', $deletedOrder)->decrement('order');
-        });
+        //    Tombstone::where('order', '>', $deletedOrder)->decrement('order');
+        //});
 
-        return response()->noContent();
+        //return response()->noContent();
     
     }
 }

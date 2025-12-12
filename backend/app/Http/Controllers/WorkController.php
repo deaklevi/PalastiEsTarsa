@@ -6,7 +6,7 @@ use App\Models\Work;
 use App\Http\Requests\StoreWorkRequest;
 use App\Http\Requests\UpdateWorkRequest;
 use App\Http\Resources\WorkResource;
-use Illuminate\Support\Facades\DB;
+//use Illuminate\Support\Facades\DB;
 
 class WorkController extends Controller
 {
@@ -28,17 +28,17 @@ class WorkController extends Controller
      */
     public function store(StoreWorkRequest $request)
     {
-        $data = $request->validated();
-        $newOrder = $data['order'];
+        //$data = $request->validated();
+        //$newOrder = $data['order'];
 
-        $work = DB::transaction(function () use ($data, $newOrder) {
+        //$work = DB::transaction(function () use ($data, $newOrder) {
 
-            Work::where('order', '>=', $newOrder)->increment('order');
+        //    Work::where('order', '>=', $newOrder)->increment('order');
 
-            return Work::create($data);
-        });
+        //    return Work::create($data);
+        //});
 
-        return new WorkResource($work);
+        //return new WorkResource($work);
     }
 
     /**
@@ -49,7 +49,7 @@ class WorkController extends Controller
      */
     public function show(Work $work)
     {
-        return new WorkResource($work);
+        //return new WorkResource($work);
     }
 
     /**
@@ -61,19 +61,19 @@ class WorkController extends Controller
      */
     public function update(UpdateWorkRequest $request, Work $work)
     {
-        $data = $request->validated();
-        $newOrder = $data['order'];
+        //$data = $request->validated();
+        //$newOrder = $data['order'];
 
-        DB::transaction(function () use ($data, $work, $newOrder) {
+        //DB::transaction(function () use ($data, $work, $newOrder) {
 
-            if ($newOrder != $work->order) {
-                Work::where('order', '>=', $newOrder)
-                    ->where('id', '!=', $work->id)
-                    ->increment('order');
-            }
+        //    if ($newOrder != $work->order) {
+        //        Work::where('order', '>=', $newOrder)
+        //            ->where('id', '!=', $work->id)
+        //            ->increment('order');
+        //    }
 
-            $work->update($data);
-        });
+        //    $work->update($data);
+        //});
 
         return new WorkResource($work);
     }
@@ -86,14 +86,14 @@ class WorkController extends Controller
      */
     public function destroy(Work $work)
     {
-        DB::transaction(function () use ($work) {
-            $deletedOrder = $work->order;
-            $work->delete();
+        //DB::transaction(function () use ($work) {
+        //    $deletedOrder = $work->order;
+        //    $work->delete();
 
-            Work::where('order', '>', $deletedOrder)
-                ->decrement('order');
-        });
+        //    Work::where('order', '>', $deletedOrder)
+        //        ->decrement('order');
+        //});
 
-        return response()->noContent();
+        //return response()->noContent();
     }
 }
