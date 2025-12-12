@@ -10,8 +10,8 @@
 
     <!-- Tartalom -->
     <div v-else class="mt-5 md:mt-10 flex flex-wrap justify-center gap-5 max-w-[1500px]" >
-      <div v-for="item in filteredTombstones" :key="item.id" class="w-40 md:w-52 cursor-pointer" @click="openModal(item)" >
-        <div class="relative w-full h-36 md:h-40 flex items-center justify-center bg-white" >
+      <div v-for="item in filteredTombstones" :key="item.id" class="w-40 max-[380px]:w-[40%] md:w-52 cursor-pointer" @click="openModal(item)" >
+        <div class="relative w-full h-36 md:h-40 flex items-center justify-center bg-whit40%e" >
           <img :src="baseUrl + item.image_url" :alt="item.name" class="min-w-full max-h-full object-contain border-2 border-orange-600" />
         </div>
         <h5 class="text-sm text-center break-words">
