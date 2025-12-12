@@ -6,7 +6,7 @@
     </div>
 
     <div class="mx-auto mt-5 md:mt-10 w-[90%] lg:max-w-4xl">
-      <p class="text-base text-left"> Az alábbbi űrlap alapvetően síremlék árajánlat kérésére vontakozik. Abban az esetben, ha más, egyéb termék iránt érdeklődik, a kapcsolat oldalon lévő üzenetdobozban elküldheti ajánlatkérését vagy közvetlenül megkereshet minket e-mail-en vagy telefonon. </p>
+      <p class="text-base text-left"> Az alábbbi űrlap alapvetően síremlék árajánlat kérésére vontakozik. <span class="text-orange-600 font-semibold underline">Így minden mező kitöltése kötelező.</span> Abban az esetben, ha más, egyéb termék iránt érdeklődik, a kapcsolat oldalon lévő üzenetdobozban elküldheti ajánlatkérését vagy közvetlenül megkereshet minket e-mail-en vagy telefonon. </p>
     </div>
 
     <!-- Ajánlatkérés form -->
@@ -43,11 +43,21 @@
             <div class="flex flex-col">
               <label class="mb-2 font-semibold text-white">Anyag:</label>
               <input v-model="form.material" type="text" placeholder="Anyag" class="w-full rounded-sm border-2 border-orange-600 p-2" />
+              <RouterLink :to="{name: 'ko-anyagminta'}"
+              class="border-2 border-orange-600 text-white font-semibold rounded-sm p-2 mt-1 disabled:opacity-50 disabled:cursor-not-allowed w-full text-center"
+              >
+                Keresés
+              </RouterLink>
             </div>
 
             <div class="flex flex-col">
               <label class="mb-2 font-semibold text-white">Alsórész (kódszám):</label>
               <input v-model="form.base_code" type="text" placeholder="Kódszám" class="w-full rounded-sm border-2 border-orange-600 p-2"/>
+              <RouterLink :to="{name: 'sirko'}"
+              class="border-2 border-orange-600 text-white font-semibold rounded-sm p-2 mt-1 disabled:opacity-50 disabled:cursor-not-allowed w-full text-center"
+              >
+                Keresés
+              </RouterLink>
             </div>
           </div>
           <!-- Step 2 -->
@@ -55,16 +65,35 @@
             <div class="flex flex-col">
               <label class="mb-2 font-semibold text-white">Emlék (fejrész, kódszám):</label>
               <input v-model="form.head_code" type="text" placeholder="Kódszám" class="w-full rounded-sm border-2 border-orange-600 p-2" />
+              <RouterLink :to="{name: 'sirko'}"
+              class="border-2 border-orange-600 text-white font-semibold rounded-sm p-2 mt-1 disabled:opacity-50 disabled:cursor-not-allowed w-full text-center"
+              >
+                Keresés
+              </RouterLink>
             </div>
 
             <div class="flex flex-col">
               <label class="mb-2 font-semibold text-white">Kiegészítők:</label>
               <input v-model="form.extras" type="text" placeholder="Pl.: kereszt, váza, mécses..." class="w-full rounded-sm border-2 border-orange-600 p-2" />
+              <RouterLink :to="{name: 'sirko-kellekek'}"
+              class="border-2 border-orange-600 text-white font-semibold rounded-sm p-2 mt-1 disabled:opacity-50 disabled:cursor-not-allowed w-full text-center"
+              >
+                Keresés
+              </RouterLink>
             </div>
 
             <div class="flex flex-col">
               <label class="mb-2 font-semibold text-white">Felirat típusa:</label>
-              <input v-model="form.inscription_type" type="text" placeholder="Felirat típusa" class="w-full rounded-sm border-2 border-orange-600 p-2" />
+              <select
+              v-model="form.inscription_type"
+              class="w-full rounded-sm border-2 border-orange-600 p-2 bg-white text-black"
+              >
+                <option disabled value="">Válassz típust</option>
+                <option value="Natúr">Natúr</option>
+                <option value="Arany">Arany</option>
+                <option value="Relief">Relief</option>
+                <option value="Bronz">Bronz</option>
+              </select>
             </div>
 
             <div class="flex flex-col">
