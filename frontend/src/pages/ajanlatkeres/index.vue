@@ -6,7 +6,7 @@
     </div>
 
     <div class="mx-auto mt-5 md:mt-10 w-[90%] lg:max-w-4xl">
-      <p class="text-base text-left"> Az alábbbi űrlap alapvetően síremlék árajánlat kérésére vontakozik. <span class="text-orange-600 font-semibold underline">Így minden mező kitöltése kötelező.</span> Abban az esetben, ha más, egyéb termék iránt érdeklődik, a kapcsolat oldalon lévő üzenetdobozban elküldheti ajánlatkérését vagy közvetlenül megkereshet minket e-mail-en vagy telefonon. </p>
+      <p class="text-base text-left"> Az alábbbi űrlap alapvetően síremlék árajánlat kérésére vontakozik,<span class="text-orange-600 font-semibold"> minden mező kitöltése szükséges.</span> Abban az esetben, ha más, egyéb termék iránt érdeklődik, a kapcsolat oldalon lévő üzenetdobozban elküldheti ajánlatkérését vagy közvetlenül megkereshet minket e-mail-en vagy telefonon. </p>
     </div>
 
     <!-- Ajánlatkérés form -->

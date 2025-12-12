@@ -6,7 +6,7 @@
     </div>
 
     <!-- Itt már csak a komponens -->
-    <BaseTombstoneCard group="NM1" class="mt-12 md:mt-[10.5rem]"/>
+    <BaseTombstoneCard group="NM1" class="mt-12 md:mt-[4rem]"/>
   </BaseLayout>
 </template>
 

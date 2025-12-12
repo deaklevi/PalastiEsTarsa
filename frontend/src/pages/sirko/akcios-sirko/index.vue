@@ -6,10 +6,10 @@
     </div>
 
     <!-- Itt már csak a komponens -->
-    <h2 class="mt-12 md:mt-[10.5rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Szimpla sírkő</h2>
+    <h2 class="mt-12 md:mt-[4rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Szimpla sírkő</h2>
     <BaseTombstoneCard group="SZK1"/>
 
-    <h2 class="mt-12 md:mt-[10.5rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Urna sírkő</h2>
+    <h2 class="mt-12 md:mt-[4rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Urna sírkő</h2>
     <BaseTombstoneCard group="UK1"/>
   </BaseLayout>
 </template>

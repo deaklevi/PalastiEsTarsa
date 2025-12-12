@@ -1,9 +1,9 @@
 <template>
   <BaseHeader />
-  <main class="mb-24 md:mb-52">
+  <main class="mb-24 md:mb-52 mt-[64px]">
     <slot />
   </main>
-  <BaseFooter class="md:hidden" />
+  <BaseFooter class="lg:hidden" />
 </template>
 
 <script>
