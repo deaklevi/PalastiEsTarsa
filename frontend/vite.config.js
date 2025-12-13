@@ -3,13 +3,15 @@ import { defineConfig } from 'vite'
 
 import Vue from '@vitejs/plugin-vue'
 import VueRouter from 'unplugin-vue-router/vite'
+import path from 'path'
 
 export default defineConfig({
+  base: '/assets/',   // 🔴 EZ HIÁNYZOTT
   plugins: [
     VueRouter({
-      routesFolder: 'src/pages', // 👈 Ezt MUSZÁJ megadni!
-      extensions: ['.vue'],      // csak .vue fájlokat figyel
-      dts: 'src/typed-router.d.ts' // opcionális, de hasznos (type hint)
+      routesFolder: 'src/pages', 
+      extensions: ['.vue'],      
+      dts: 'src/typed-router.d.ts'
     }),
     Vue()
   ],
@@ -27,5 +29,19 @@ export default defineConfig({
       '@stores': fileURLToPath(new URL('./src/stores', import.meta.url)),
       '@utils': fileURLToPath(new URL('./src/utils', import.meta.url))
     }
+  },
+  build: {
+  outDir: path.resolve(__dirname, '../backend/public/assets'),
+  emptyOutDir: false,
+  assetsDir: '',  
+  rollupOptions: {
+    output: {
+      entryFileNames: `[name]-[hash].js`,
+      chunkFileNames: `[name]-[hash].js`,
+      assetFileNames: `[name]-[hash].[ext]`  // ez a sor biztosítja, hogy ne menjenek nested mappába
+    }
   }
+}
+
+
 })

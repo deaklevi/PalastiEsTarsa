@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//use Illuminate\Support\Facades\File;
+//use Illuminate\Support\Facades\Response;
+//
+//Route::get('/{any}', function () {
+//    return response()->file(public_path('assets/index.html'));
+//})->where('any', '^(?!assets).*');
