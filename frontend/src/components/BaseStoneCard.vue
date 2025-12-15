@@ -9,10 +9,10 @@
     </div>
 
     <!-- Tartalom -->
-    <div v-else class="mt-5 md:mt-10 flex flex-wrap justify-center gap-5 max-w-[1500px]">
+    <div v-else class=" flex flex-wrap justify-center gap-5 max-w-[1500px]">
       <div v-for="item in filteredStones" :key="item.id" class="w-40 max-[380px]:w-[40%] md:w-52 cursor-pointer" @click="openModal(item)">
         <div class="relative w-full h-36 md:h-40 flex items-center justify-center bg-white">
-          <img :src="baseUrl + item.image_url" :alt="item.name" class="min-w-full max-h-full object-contain border-2 border-orange-600" />
+          <img :src="'../../../public' + item.image_url" :alt="item.name" class="min-w-full max-h-full object-contain border-2 border-orange-600" />
         </div>
         <h5 class="text-sm text-center break-words">
           {{ item.name }}
@@ -29,7 +29,7 @@
         <!-- Tartalom -->
         <div class="flex-1 flex flex-col">
           <h2 class="text-center text-xl font-bold text-orange-600 mb-4">{{ selectedItem.name }}</h2>
-          <img :src="baseUrl + selectedItem.image_url" :alt="selectedItem.name" class="mx-auto lg:border-none border-2 border-orange-600 max-h-[40vh] object-contain mb-4" />
+          <img :src="'../../../public' + selectedItem.image_url" :alt="selectedItem.name" class="mx-auto lg:border-none border-2 border-orange-600 max-h-[40vh] object-contain mb-4" />
           <p class="mt-2 text-white text-base leading-relaxed overflow-auto max-h-[30vh] touch-auto mx-auto sm:w-[32rem]" style="-webkit-overflow-scrolling: touch;">
             <br><span class="text-orange-600 font-semibold">Anyagnév:</span> {{ selectedItem.name }}
             <br><span class="text-orange-600 font-semibold">Származás:</span> {{ selectedItem.origin }}

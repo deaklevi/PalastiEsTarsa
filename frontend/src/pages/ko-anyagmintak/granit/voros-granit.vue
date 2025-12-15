@@ -6,7 +6,7 @@
     </div>
 
     <!-- Itt már csak a komponens -->
-    <BaseStoneCard group="voros-granit" class="mt-12 md:mt-[10.5rem]"/>
+    <BaseStoneCard group="voros-granit" class="mt-12 md:mt-[4rem]"/>
 
   </BaseLayout>
 </template>

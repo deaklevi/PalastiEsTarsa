@@ -6,13 +6,13 @@
     </div>
 
     <!-- Itt már csak a komponens -->
-    <h2 class="mt-12 md:mt-[10.5rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Gránit</h2>
+    <h2 class="mt-12 md:mt-[4rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Gránit</h2>
     <BaseStoneCard group="anyagtar-granit"/>
 
-    <h2 class="mt-12 md:mt-[10.5rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Márvány</h2>
+    <h2 class="mt-12 md:mt-[4rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Márvány</h2>
     <BaseStoneCard group="anyagtar-marvany"/>
 
-    <h2 class="mt-12 md:mt-[10.5rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Mészkő</h2>
+    <h2 class="mt-12 md:mt-[4rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Mészkő</h2>
     <BaseStoneCard group="anyagtar-meszko"/>
 
   </BaseLayout>

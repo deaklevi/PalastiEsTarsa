@@ -6,7 +6,7 @@
     </div>
 
     <!-- Itt már csak a komponens -->
-    <BaseAccessoriesCard group="sirfelirat" class="mt-12 md:mt-[10.5rem]"/>
+    <BaseAccessoriesCard group="sirfelirat" class="mt-12 md:mt-[4rem]"/>
 
     <div class="flex flex-col w-full items-center mb-24 md:mb-52">
         <div class="flex flex-col items-center bg-neutral-800 border-2 border-orange-600 p-5 md:p-2 md:flex-row md:items-start max-w-[1500px] md:mx-12">

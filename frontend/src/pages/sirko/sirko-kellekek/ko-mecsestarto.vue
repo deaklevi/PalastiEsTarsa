@@ -6,7 +6,7 @@
     </div>
 
     <!-- Itt már csak a komponens -->
-    <BaseAccessoriesCard group="L1" class="mt-12 md:mt-[10.5rem]"/>
+    <BaseAccessoriesCard group="L1" class="mt-12 md:mt-[4rem]"/>
   </BaseLayout>
 </template>
 

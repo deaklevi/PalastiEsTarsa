@@ -6,10 +6,10 @@
     </div>
 
     <!-- Itt már csak a komponens -->
-    <h2 class="mt-12 md:mt-[10.5rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Travertin mészkő</h2>
+    <h2 class="mt-12 md:mt-[4rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Travertin mészkő</h2>
     <BaseStoneCard group="travertin-meszko"/>
 
-    <h2 class="mt-12 md:mt-[10.5rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Római travertin mészkő</h2>
+    <h2 class="mt-12 md:mt-[4rem] md:mx-12 text-xl font-bold w-full text-center md:text-left">Római travertin mészkő</h2>
     <BaseStoneCard group="romai-travertin-meszko"/>
 
   </BaseLayout>

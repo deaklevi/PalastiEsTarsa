@@ -7,7 +7,7 @@
       <span class='text-orange-600 font-semibold'>'Az oldalon takálható képek linkek! Rákattintva megnyílik a sírkő kellék pdf dokumentációja.'</span>" />
     </div>
 
-    <div class="flex flex-wrap justify-center gap-5 mt-24 md:mt-52 mb-24 md:mb-52 max-w-[1500px] mx-auto">
+    <div class="flex flex-wrap justify-center gap-5 mt-12 md:mt-[4rem] mb-24 md:mb-52 max-w-[1500px] mx-auto">
       <div class="flex flex-col items-center md:items-start w-[30rem]">
         <h4 class="text-base font-semibold pb-2 text-center md:text-left">Bronz kereszt és feszület</h4>
         <BaseInfoCard class="cursor-pointer w-full" image="../../public/Sirko/Sirko-kellekek/Bronz-sirko-kellekek/bronz-kereszt-es-feszulet.jpg" text="A katalógusban látható keresztek és feszületek kódszámmal vannak ellátva. A kódszám alatt található az adott forma különböző méretei. A P jelzés annyit jelent, hogy függőleges felületre, a T jelűek pedig vízszintes felszínre a talpukra szerelhetőek." onclick="window.open('../../public/PDF/feszulet.pdf')"/>
