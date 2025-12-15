@@ -29,7 +29,7 @@
         <!-- Tartalom -->
         <div class="text-center flex-1 flex flex-col">
           <h2 class="text-xl font-bold text-orange-600 mb-1">{{ selectedItem.name }}</h2>
-          <img :src="'../../../public' + selectedItem.image_url" :alt="selectedItem.name" class="mx-auto lg:border-none border-2 border-orange-600 max-h-[90rem] object-contain mb-4" />
+          <img :src="'../../../public' + selectedItem.image_url" :alt="selectedItem.name" class="mx-auto lg:border-none border-2 border-orange-600 max-h-[90rem] object-contain mb-1" />
           <!-- Scrollozható leírás -->
           <p class="mt-2 text-white text-xs leading-relaxed overflow-auto max-h-[30vh] touch-auto" style="-webkit-overflow-scrolling: touch;">
             <span class="text-orange-600 font-semibold">{{ selectedItem.tombstone_id }}</span> | {{ selectedItem.description }}
@@ -37,7 +37,7 @@
         </div>
 
         <!-- Nyilak szöveggel, egyforma széles gombok -->
-        <div class="flex justify-center mt-2">
+        <div class="flex justify-center mt-1">
           <div class="flex w-full max-w-xs">
             <button @click="prevItem" class="flex-1 flex justify-center gap-2 p-1 bg-orange-600 text-white rounded lg:hover:bg-orange-700 transition-colors duration-300 mx-1" >
               Balra
