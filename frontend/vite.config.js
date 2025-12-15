@@ -6,7 +6,6 @@ import VueRouter from 'unplugin-vue-router/vite'
 import path from 'path'
 
 export default defineConfig({
-  base: '/assets/',   // 🔴 EZ HIÁNYZOTT
   plugins: [
     VueRouter({
       routesFolder: 'src/pages', 
@@ -29,19 +28,5 @@ export default defineConfig({
       '@stores': fileURLToPath(new URL('./src/stores', import.meta.url)),
       '@utils': fileURLToPath(new URL('./src/utils', import.meta.url))
     }
-  },
-  build: {
-  outDir: path.resolve(__dirname, '../backend/public/assets'),
-  emptyOutDir: false,
-  assetsDir: '',  
-  rollupOptions: {
-    output: {
-      entryFileNames: `[name]-[hash].js`,
-      chunkFileNames: `[name]-[hash].js`,
-      assetFileNames: `[name]-[hash].[ext]`  // ez a sor biztosítja, hogy ne menjenek nested mappába
-    }
   }
-}
-
-
 })
