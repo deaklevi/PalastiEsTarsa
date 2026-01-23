@@ -14,11 +14,25 @@ export default defineConfig({
       dts: 'src/typed-router.d.ts'
     }),
     Vue(),
+
+    // public fájlok másolása a régi build logika szerint, sitemap külön kezelve
     {
       name: 'copy-public',
       closeBundle() {
-        // a public mappa átmásolása a dist/public alá
-        fs.copySync('public', path.resolve(__dirname, 'dist/public'))
+        const distPublic = path.resolve(__dirname, 'dist/public')
+
+        // public mappa másolása a dist/public alá
+        fs.copySync('public', distPublic, {
+          filter: (src) => !src.endsWith('sitemap.xml')
+        })
+
+        // sitemap.xml átmásolása a dist gyökerébe
+        const sitemapSrc = path.resolve(__dirname, 'public/sitemap.xml')
+        const sitemapDest = path.resolve(__dirname, 'dist/sitemap.xml')
+        if (fs.existsSync(sitemapSrc)) {
+          fs.copyFileSync(sitemapSrc, sitemapDest)
+          console.log('✅ sitemap.xml copied to dist/')
+        }
       }
     }
   ],
@@ -35,7 +49,7 @@ export default defineConfig({
     }
   },
   server: {
-    host: true,
+    host: true
   },
   build: {
     outDir: path.resolve(__dirname, 'dist'),
