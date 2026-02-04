@@ -98,7 +98,7 @@ export default {
 {
   "name": "epiteszet",
   "meta": {
-    "title": "Sírkő – Palásti és Társa Kft.",
+    "title": "Építészet – Palásti és Társa Kft.",
     "description": "Az építészet kihagyhatatlan szerkezeti és díszítő eleme, évezredek óta a kő. Következésképp egyrészről a művészetek egyik ága (alkalmazott művészet), másrészről mérnöki tudomány, technológiai szaktudomány. A humán kultúra, az emberi tevékenység egyik legalapvetőbb megjelenési formája. Az embert körülvevő természeti környezet akaratlagos megváltoztatása. Az építészet témaköréhez elválaszthatatlanul kapcsolódik az építés fogalomköre. Mindenképp fontos viszont különbséget tenni, s ez a különbség alapvetően az esztétika és a technológiai igény mértékében érhető tetten. Az épületek megépítésén kívül építészetnek nevezzük a belső terek kialakításától kezdve (belsőépítészet) egészen a városi-, esetenként regionális léptékig terjedő építészetet (városépítészet, urbanisztika) is. Az oldalon feltüntetett témakörök magukba foglalják tevékenységünk jelentős részét. Mondhatni, lehetőségünk és tehetségünk van elkészíteni akár egy egyszerű ablakpárkányt vagy egy bonyolult, több elemből álló specifikus kompozíciót is."
   }
 }
