@@ -1,30 +1,32 @@
 <template>
-  <div v-if="isValidated" class="dashboard">
-    <header>
-      <h1>Üdvözöllek a Palásti Kft. Admin felületén!</h1>
-      <button class="logout-btn" @click="handleLogout">Kijelentkezés</button>
+  <div v-if="isValidated" class="min-h-screen bg-gray-50 p-6">
+    <header class="max-w-7xl mx-auto flex justify-between items-center mb-10 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-800">Palásti Kft. Admin</h1>
+        <p class="text-sm text-green-600 font-medium">Állapot: Hitelesített munkamenet</p>
+      </div>
+      <button @click="handleLogout" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg font-bold transition shadow-md">
+        Kijelentkezés
+      </button>
     </header>
 
-    <main>
-      <div class="stats-card">
-        <h3>Sikeres belépés!</h3>
-        <p>Itt tudod majd kezelni a sírköveket és egyéb adatokat.</p>
-        <div class="admin-actions">
-          <p>Állapot: <strong>Hitelesítve</strong></p>
+    <main class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div v-for="menu in menuItems" :key="menu.path" class="bg-white p-6 rounded-xl shadow-md border-b-4 hover:shadow-lg transition group" :class="menu.color">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">{{ menu.title }}</h3>
+          <p class="text-gray-500 text-sm mb-6">{{ menu.desc }}</p>
+          <RouterLink :to="menu.path" class="inline-block w-full text-center bg-gray-800 text-white py-2 rounded-lg group-hover:bg-opacity-90 transition font-semibold">
+            Szerkesztés megnyitása
+          </RouterLink>
         </div>
-      </div>
 
-      <div class="stats-card">
-        <h3>Sírkő kellékek szerkesztése</h3>
-        <p>Itt tudod majd szerkeszteni a sírkövekkel kapcsolatos kellékeket.</p>
-        <br>
-        <RouterLink to="/accessories" class="bg-green-300 p-3">Szerkesztés</RouterLink>
       </div>
     </main>
   </div>
   
-  <div v-else class="loading-overlay">
-    Ellenőrzés...
+  <div v-else class="h-screen flex justify-center items-center bg-gray-50">
+    <div class="animate-spin rounded-full h-12 w-12 border-4 border-green-500 border-t-transparent"></div>
   </div>
 </template>
 
@@ -36,32 +38,27 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const isValidated = ref(false)
 
+const menuItems = [
+  { title: 'Sírkő kellékek', desc: 'Vázák, mécsestartók és kiegészítők kezelése.', path: '/accessories', color: 'border-green-500' },
+  { title: 'Építészet', desc: 'Lépcsők, pultok és építészeti munkák.', path: '/architecture', color: 'border-blue-500' },
+  { title: 'Kő-anyagminták', desc: 'Gránit, márvány és mészkő minták tára.', path: '/stone', color: 'border-yellow-500' },
+  { title: 'Sírkövek', desc: 'Fő katalógus: sírkövek típusai és adatai.', path: '/tombstone', color: 'border-purple-500' },
+  { title: 'Munkáink', desc: 'Referencia fotók és elvégzett munkák.', path: '/work', color: 'border-red-500' },
+]
+
 onMounted(async () => {
   const token = localStorage.getItem('token')
-
-  // 1. Azonnali check: Ha nincs token, nincs értelme várni a szerverre
-  if (!token) {
-    console.warn("Nincs token, irány a főoldal.")
-    router.push('/')
-    return
-  }
+  if (!token) return router.push('/')
 
   try {
-    // 2. Szerver oldali validáció a védett útvonallal
     await http.get('/admin/protected-data')
-    
-    // Ha ide eljut a kód, a token érvényes
     isValidated.value = true
-    console.log("Token érvényes, hozzáférés engedélyezve.")
   } catch (err) {
-    // 3. Ha a szerver 401/403 hibát dob (lejárt vagy hamis token)
-    console.error("Érvénytelen munkamenet!")
     localStorage.removeItem('token')
     router.push('/')
   }
 })
 
-// Kijelentkezés: törlés a tárolóból és irány a főoldal
 const handleLogout = () => {
   localStorage.removeItem('token')
   router.push('/')

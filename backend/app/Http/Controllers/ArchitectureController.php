@@ -11,92 +11,77 @@ use Illuminate\Support\Facades\Storage;
 
 class ArchitectureController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return ArchitectureResource::collection(Architecture::orderBy('order')->get());
+        // Sorrend szerint rendezve adjuk vissza
+        return ArchitectureResource::collection(Architecture::orderBy('order', 'asc')->get());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreArchitectureRequest $request)
     {
-        //$data = $request->validated();
-        //$newOrder = $data['order'];
+        $data = $request->validated();
 
-        //$architecture = DB::transaction(function () use ($data, $request, $newOrder) {
-        //    Architecture::where('order', '>=', $newOrder)->increment('order');
+        $architecture = DB::transaction(function () use ($data, $request) {
+            // Ha megadtunk sorrendet, a többit toljuk arrébb
+            if (isset($data['order'])) {
+                Architecture::where('order', '>=', $data['order'])->increment('order');
+            }
 
-        //    if ($request->hasFile('image')) {
-        //        $path = $request->file('image')->store('architectures', 'public');
-        //        $data['image_url'] = '/storage/' . $path;
-        //    }
+            if ($request->hasFile('image')) {
+                $path = $request->file('image')->store('architectures', 'public');
+                $data['image_url'] = '/storage/' . $path;
+            }
 
-        //    return Architecture::create($data);
-        //});
+            return Architecture::create($data);
+        });
 
-        //return new ArchitectureResource($architecture);
+        return new ArchitectureResource($architecture);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Architecture $architecture)
-    {
-        //return new ArchitectureResource($architecture);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateArchitectureRequest $request, Architecture $architecture)
     {
-        //$data = $request->validated();
-        //$newOrder = $data['order'];
+        $data = $request->validated();
 
-        //DB::transaction(function () use ($data, $request, $newOrder, $architecture) {
-        //    if ($newOrder != $architecture->order) {
-        //        Architecture::where('order', '>=', $newOrder)
-        //            ->where('id', '!=', $architecture->id)
-        //            ->increment('order');
-        //    }
+        DB::transaction(function () use ($data, $request, $architecture) {
+            // Sorrend frissítése: ha változik, átrendezzük a többit
+            if (isset($data['order']) && $data['order'] != $architecture->order) {
+                Architecture::where('order', '>=', $data['order'])
+                    ->where('id', '!=', $architecture->id)
+                    ->increment('order');
+            }
 
-        //    if ($request->hasFile('image')) {
-        //        if ($architecture->image_url) {
-        //            $oldPath = ltrim(str_replace('/storage/', '', $architecture->image_url), '/');
-        //            Storage::disk('public')->delete($oldPath);
-        //        }
+            if ($request->hasFile('image')) {
+                // Régi kép törlése
+                if ($architecture->image_url) {
+                    $oldPath = str_replace('/storage/', '', $architecture->image_url);
+                    Storage::disk('public')->delete($oldPath);
+                }
 
-        //        $path = $request->file('image')->store('architectures', 'public');
-        //        $data['image_url'] = '/storage/' . $path;
-        //    }
+                $path = $request->file('image')->store('architectures', 'public');
+                $data['image_url'] = '/storage/' . $path;
+            }
 
-        //    $architecture->update($data);
-        //});
+            $architecture->update($data);
+        });
 
-        //return new ArchitectureResource($architecture);
+        return new ArchitectureResource($architecture);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Architecture $architecture)
     {
-        //DB::transaction(function () use ($architecture) {
-        //    if ($architecture->image_url) {
-        //        $oldPath = ltrim(str_replace('/storage/', '', $architecture->image_url), '/');
-        //        Storage::disk('public')->delete($oldPath);
-        //    }
+        DB::transaction(function () use ($architecture) {
+            if ($architecture->image_url) {
+                $oldPath = str_replace('/storage/', '', $architecture->image_url);
+                Storage::disk('public')->delete($oldPath);
+            }
 
-        //    $deletedOrder = $architecture->order;
-        //    $architecture->delete();
+            $oldOrder = $architecture->order;
+            $architecture->delete();
 
-        //    Architecture::where('order', '>', $deletedOrder)->decrement('order');
-        //});
+            // Lyuk betömése a sorrendben
+            Architecture::where('order', '>', $oldOrder)->decrement('order');
+        });
 
-        //return response()->noContent();
+        return response()->noContent();
     }
 }
