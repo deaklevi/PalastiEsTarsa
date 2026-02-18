@@ -6,7 +6,8 @@ return [
     'allowed_origins' => [
         'http://localhost:5173',
         'http://192.168.1.83:5173',
-        'http://localhost:3000'
+        'http://localhost:3000',
+        'http://localhost:5174',
     ],
     'allowed_headers' => ['*'],
     'supports_credentials' => true,
