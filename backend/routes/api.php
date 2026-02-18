@@ -21,28 +21,34 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+// --- PUBLIKUS ÚTVONALAK (Mindenki látja) ---
+Route::apiResource('tombstones', TombstoneController::class)->only(['index', 'show']);
+Route::apiResource('accessories', AccessoryController::class)->only(['index', 'show']);
+Route::apiResource('architectures', ArchitectureController::class)->only(['index', 'show']);
+Route::apiResource('works', WorkController::class)->only(['index', 'show']);
+Route::apiResource('stones', StoneController::class)->only(['index', 'show']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::apiResource('tombstones', TombstoneController::class)->only(['index']);
-Route::apiResource('accessories', AccessoryController::class)->only(['index']);
-Route::apiResource('architectures', ArchitectureController::class)->only(['index']);
-Route::apiResource('works', WorkController::class)->only(['index']);
-Route::apiResource('stones', StoneController::class)->only(['index']);
 Route::post('/send-contact', [ContactController::class, 'send']);
 Route::post('/send-offer', [ContactController::class, 'sendOffer']);
-
-// Nyilvános bejelentkezés (1. lépés)
 Route::post('/login', [AuthController::class, 'login']);
 
-// Védett útvonalak (Csak ha már bejelentkezett és van Sanctum tokenje)
+// --- VÉDETT ÚTVONALAK (Csak bejelentkezett adminnak) ---
 Route::middleware('auth:sanctum')->group(function () {
+    
+    // 2FA ellenőrzés
     Route::post('/verify-2fa', [AuthController::class, 'verify2FA']);
     
-    // Ide jönnek az adatok, amiket csak belépés után láthatsz
-    Route::get('/protected-data', function () {
-        return response()->json(['message' => 'Sikeresen bent vagy!']);
+    // Itt érhető el a teljes szerkesztési jog (POST, PUT, DELETE)
+    // A prefix segít megkülönböztetni az admin hívásokat a sima listázástól
+    Route::prefix('admin')->group(function () {
+        Route::apiResource('tombstones', TombstoneController::class)->except(['index', 'show']);
+        Route::apiResource('accessories', AccessoryController::class)->except(['index', 'show']);
+        Route::apiResource('architectures', ArchitectureController::class)->except(['index', 'show']);
+        Route::apiResource('works', WorkController::class)->except(['index', 'show']);
+        Route::apiResource('stones', StoneController::class)->except(['index', 'show']);
+        
+        Route::get('/protected-data', function () {
+            return response()->json(['message' => 'Sikeresen bent vagy az admin zónában!']);
+        });
     });
 });
