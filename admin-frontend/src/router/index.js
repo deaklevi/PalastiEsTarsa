@@ -1,30 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from 'vue-router/auto-routes'
-import { useAuthStore } from '@/stores/auth' // <--- Ellenőrizd az elérési utat!
+import { useAuthStore } from '@/stores/auth'
 
 export const router = createRouter({
   history: createWebHistory(),
-  linkActiveClass: 'active',
   routes
 })
 
 router.beforeEach((to, from, next) => {
-  // A store-t ITT, a függvényen belül kell példányosítani!
-  const auth = useAuthStore()
   const token = localStorage.getItem('token')
+  
+  // Megnézzük, hogy az adott út (vagy bármely szülője) igényel-e hitelesítést
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
 
-  // Ha az oldalhoz hitelesítés kell (pl. Dashboard)
-  if (to.name === 'Dashboard') {
+  if (requiresAuth) {
     if (!token) {
-      // Nincs token? Irány a login.
+      // Ha nincs token, azonnal küldjük a loginra
       return next({ name: 'Login' })
-    } 
+    }
+    
+    // Itt hívjuk meg a store-t, hogy ellenőrizzük a 2FA állapotot is
+    const auth = useAuthStore()
     if (auth.step !== 'logged-in') {
-      // Van token, de a 2FA kód még nincs kész? Maradjon a login/2fa nézetben.
-      // (Feltéve, hogy a Login oldalon kezeled a 2FA-t is)
       return next({ name: 'Login' })
     }
   }
-
+  
+  // Ha nem kell auth, vagy minden oké, mehet tovább
   next()
 })
