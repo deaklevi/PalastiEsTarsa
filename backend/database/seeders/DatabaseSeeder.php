@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             ArchitectureSeeder::class,
             WorkSeeder::class,
             StoneSeeder::class,
+            AdminUserSeeder::class,
         ]);
     }
 }
