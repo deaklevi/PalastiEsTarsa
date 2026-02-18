@@ -13,6 +13,13 @@
           <p>Állapot: <strong>Hitelesítve</strong></p>
         </div>
       </div>
+
+      <div class="stats-card">
+        <h3>Sírkő kellékek szerkesztése</h3>
+        <p>Itt tudod majd szerkeszteni a sírkövekkel kapcsolatos kellékeket.</p>
+        <br>
+        <RouterLink to="/accessories" class="bg-green-300 p-3">Szerkesztés</RouterLink>
+      </div>
     </main>
   </div>
   

@@ -8,13 +8,12 @@ use App\Http\Requests\UpdateAccessoryRequest;
 use App\Http\Resources\AccessoryResource;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log; // Importálva a piros aláhúzás ellen
 
 class AccessoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Összes kiegészítő listázása sorrend szerint.
      */
     public function index()
     {
@@ -22,96 +21,112 @@ class AccessoryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreAccessoryRequest  $request
-     * @return \Illuminate\Http\Response
+     * Új kiegészítő mentése.
      */
     public function store(StoreAccessoryRequest $request)
-    {
-        //$data = $request->validated();
-        //$newOrder = $data['order'];
+{
+    $data = $request->validated();
+    
+    try {
+        $accessory = DB::transaction(function () use ($data, $request) {
+            // Sorrend kezelése
+            $newOrder = $data['order'] ?? (Accessory::max('order') + 1);
+            Accessory::where('order', '>=', $newOrder)->increment('order');
+            $data['order'] = $newOrder;
 
-        //$accessory = DB::transaction(function () use ($data, $request, $newOrder) {
-        //    Accessory::where('order', '>=', $newOrder)->increment('order');
+            // Képkezelés
+            if ($request->hasFile('image')) {
+                $path = $request->file('image')->store('accessories', 'public');
+                $data['image_url'] = Storage::url($path);
+            }
 
-        //    if ($request->hasFile('image')) {
-        //        $path = $request->file('image')->store('accessories', 'public');
-        //        $data['image_url'] = '/storage/' . $path;
-        //    }
+            // Alapértelmezett accessory_id ha üres
+            if (empty($data['accessory_id'])) {
+                $data['accessory_id'] = 'ACC-' . rand(100, 999);
+            }
 
-        //    return Accessory::create($data);
-        //});
+            return Accessory::create($data);
+        });
 
-        //return new AccessoryResource($accessory);
+        return new AccessoryResource($accessory);
+    } catch (\Exception $e) {
+        Log::error("Mentési hiba: " . $e->getMessage());
+        return response()->json(['error' => $e->getMessage()], 500);
     }
+}
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Accessory  $accessory
-     * @return \Illuminate\Http\Response
+     * Egy konkrét kiegészítő megtekintése.
      */
     public function show(Accessory $accessory)
     {
-        //return new AccessoryResource($accessory);
+        return new AccessoryResource($accessory);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateAccessoryRequest  $request
-     * @param  \App\Models\Accessory  $accessory
-     * @return \Illuminate\Http\Response
+     * Szerkesztés mentése.
      */
     public function update(UpdateAccessoryRequest $request, Accessory $accessory)
     {
-        //$data = $request->validated();
-        //$newOrder = $data['order'];
+        $data = $request->validated();
 
-        //DB::transaction(function () use ($data, $request, $newOrder, $accessory) {
-        //    if ($newOrder != $accessory->order) {
-        //        Accessory::where('order', '>=', $newOrder)
-        //            ->where('id', '!=', $accessory->id)
-        //            ->increment('order');
-        //    }
+        try {
+            DB::transaction(function () use ($data, $request, $accessory) {
+                // Sorrend frissítése, ha változott
+                if (isset($data['order']) && $data['order'] != $accessory->order) {
+                    $newOrder = $data['order'];
+                    Accessory::where('order', '>=', $newOrder)
+                        ->where('id', '!=', $accessory->id)
+                        ->increment('order');
+                }
 
-        //    if ($request->hasFile('image')) {
-        //        if ($accessory->image_url) {
-        //            $oldPath = ltrim(str_replace('/storage/', '', $accessory->image_url), '/');
-        //            Storage::disk('public')->delete($oldPath);
-        //        }
+                // Kép frissítése és a régi törlése, ha van új
+                if ($request->hasFile('image')) {
+                    if ($accessory->image_url) {
+                        $oldPath = str_replace('/storage/', '', $accessory->image_url);
+                        Storage::disk('public')->delete($oldPath);
+                    }
 
-        //        $path = $request->file('image')->store('accessories', 'public');
-        //        $data['image_url'] = '/storage/' . $path;
-        //    }
+                    $path = $request->file('image')->store('accessories', 'public');
+                    $data['image_url'] = Storage::url($path);
+                }
 
-        //    $accessory->update($data);
-        //});
+                $accessory->update($data);
+            });
 
-        //return new AccessoryResource($accessory);
+            return new AccessoryResource($accessory->fresh());
+
+        } catch (\Exception $e) {
+            Log::error("Accessory frissítési hiba: " . $e->getMessage());
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Accessory  $accessory
-     * @return \Illuminate\Http\Response
+     * Törlés és sorrend újraszervezése.
      */
     public function destroy(Accessory $accessory)
     {
-        //DB::transaction(function () use ($accessory) {
-        //    if ($accessory->image_url) {
-        //        $oldPath = ltrim(str_replace('/storage/', '', $accessory->image_url), '/');
-        //        Storage::disk('public')->delete($oldPath);
-        //    }
+        try {
+            DB::transaction(function () use ($accessory) {
+                // Kép törlése a tárhelyről
+                if ($accessory->image_url) {
+                    $oldPath = str_replace('/storage/', '', $accessory->image_url);
+                    Storage::disk('public')->delete($oldPath);
+                }
 
-        //    $deletedOrder = $accessory->order;
-        //    $accessory->delete();
+                $deletedOrder = $accessory->order;
+                $accessory->delete();
 
-        //    Accessory::where('order', '>', $deletedOrder)->decrement('order');
-        //});
+                // A mögötte lévők előrébb hozása
+                Accessory::where('order', '>', $deletedOrder)->decrement('order');
+            });
 
-        //return response()->noContent();
+            return response()->noContent();
+
+        } catch (\Exception $e) {
+            Log::error("Accessory törlési hiba: " . $e->getMessage());
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 }

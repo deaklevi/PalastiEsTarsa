@@ -24,15 +24,15 @@ class StoreAccessoryRequest extends FormRequest
     public function rules()
     {
         return [
-            "order" => ["required", "integer", "max:500"],
-            "accessory_id" => ["nullable", "string", "max:10"],
-            "name" => ["required", "string", "max:50"],
-            "type" => ["required", "string"],
-            "size" => ["required", "string"],
-            "recommended_type" => ["required", "string"],
-            "manufacturing_technology" => ["required", "string"],
-            "image" => ["nullable", "file", "image", "max:2048"], // ide jön a feltöltött fájl
-            "group" => ["nullable", "string", "max:50"],
-        ];
+        'name' => 'required|string|max:255',
+        'type' => 'required|string',
+        'size' => 'required|string',
+        'recommended_type' => 'required|string',
+        'manufacturing_technology' => 'required|string',
+        'group' => 'required|string|max:50',
+        'order' => 'nullable|integer',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        'accessory_id' => 'nullable|string|max:10',
+    ];
     }
 }
