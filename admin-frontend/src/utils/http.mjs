@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const http = axios.create({
-    baseURL: "http://backend.vm1.test/api",
+    baseURL: import.meta.env.VITE_API_BASE_URL + "/api",
     headers:{
         "Accept": "application/json",
         "Content-Type": "application/json" 
