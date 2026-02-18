@@ -15,10 +15,10 @@ class AdminUserSeeder extends Seeder
     public function run(): void
 {
     \App\Models\User::updateOrCreate(
-        ['email' => 'deakleventevok@gmail.com'],
+        ['email' => 'palasti.kft@gmail.com'],
         [
             'name' => 'Admin Levente',
-            'password' => \Illuminate\Support\Facades\Hash::make('titkosjelszo123'),
+            'password' => \Illuminate\Support\Facades\Hash::make('17811781'),
         ]
     );
 }

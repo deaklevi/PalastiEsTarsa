@@ -24,7 +24,7 @@ class AuthController extends Controller
         $user->save();
 
         Mail::raw("Kódod: {$user->two_factor_code}", function ($message) {
-            $message->to('deakleventevok@gmail.com')->subject('2FA Kód');
+            $message->to('palasti.kft@gmail.com')->subject('2FA Kód');
         });
 
         // Ez a token CSAK a kód ellenőrzésére jogosít fel
