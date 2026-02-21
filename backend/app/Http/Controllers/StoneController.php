@@ -13,7 +13,8 @@ class StoneController extends Controller
 {
     public function index()
     {
-        return StoneResource::collection(Stone::orderBy('order')->get());
+        // Csoportonként, majd azon belül sorszám szerint rendezve
+        return StoneResource::collection(Stone::orderBy('group')->orderBy('order')->get());
     }
 
     public function store(StoreStoneRequest $request)
@@ -21,8 +22,10 @@ class StoneController extends Controller
         $data = $request->validated();
 
         $stone = DB::transaction(function () use ($data, $request) {
-            // Sorrend átrendezése
-            Stone::where('order', '>=', $data['order'])->increment('order');
+            // Csak az adott csoporton belül toljuk el a sorszámokat
+            Stone::where('group', $data['group'])
+                ->where('order', '>=', $data['order'])
+                ->increment('order');
 
             if ($request->hasFile('image')) {
                 $path = $request->file('image')->store('stones', 'public');
@@ -38,14 +41,39 @@ class StoneController extends Controller
     public function update(UpdateStoneRequest $request, Stone $stone)
     {
         $data = $request->validated();
+        $oldGroup = $stone->group;
+        $newGroup = $data['group'] ?? $oldGroup;
+        $oldOrder = $stone->order;
+        $newOrder = $data['order'] ?? $oldOrder;
 
-        DB::transaction(function () use ($data, $request, $stone) {
-            if ($data['order'] != $stone->order) {
-                Stone::where('order', '>=', $data['order'])
-                    ->where('id', '!=', $stone->id)
+        DB::transaction(function () use ($data, $request, $stone, $oldGroup, $newGroup, $oldOrder, $newOrder) {
+            
+            // Ha a csoport változatlan, de a sorszám módosult
+            if ($oldGroup === $newGroup) {
+                if ($newOrder > $oldOrder) {
+                    Stone::where('group', $oldGroup)
+                        ->whereBetween('order', [$oldOrder + 1, $newOrder])
+                        ->decrement('order');
+                } elseif ($newOrder < $oldOrder) {
+                    Stone::where('group', $oldGroup)
+                        ->whereBetween('order', [$newOrder, $oldOrder - 1])
+                        ->increment('order');
+                }
+            } 
+            // Ha a kő átkerült egy másik csoportba
+            else {
+                // Régi csoportban a lyuk bezárása
+                Stone::where('group', $oldGroup)
+                    ->where('order', '>', $oldOrder)
+                    ->decrement('order');
+
+                // Új csoportban hely felszabadítása az új sorszámnak
+                Stone::where('group', $newGroup)
+                    ->where('order', '>=', $newOrder)
                     ->increment('order');
             }
 
+            // Képkezelés
             if ($request->hasFile('image')) {
                 if ($stone->image_url) {
                     $oldPath = ltrim(str_replace('/storage/', '', $stone->image_url), '/');
@@ -71,9 +99,14 @@ class StoneController extends Controller
             }
 
             $deletedOrder = $stone->order;
+            $deletedGroup = $stone->group;
+            
             $stone->delete();
 
-            Stone::where('order', '>', $deletedOrder)->decrement('order');
+            // Csak az adott csoportban rendezzük újra a sorszámokat a törlés után
+            Stone::where('group', $deletedGroup)
+                ->where('order', '>', $deletedOrder)
+                ->decrement('order');
         });
 
         return response()->noContent();

@@ -12,6 +12,7 @@ class WorkController extends Controller
 {
     public function index()
     {
+        // Egyszerű globális sorrendezés
         return WorkResource::collection(Work::orderBy('order')->get());
     }
 
@@ -20,7 +21,9 @@ class WorkController extends Controller
         $data = $request->validated();
 
         $work = DB::transaction(function () use ($data) {
+            // Minden elemet eltolunk, ami az új elem sorszámánál nagyobb vagy egyenlő
             Work::where('order', '>=', $data['order'])->increment('order');
+
             return Work::create($data);
         });
 
@@ -30,13 +33,25 @@ class WorkController extends Controller
     public function update(UpdateWorkRequest $request, Work $work)
     {
         $data = $request->validated();
+        
+        $oldOrder = $work->order;
+        $newOrder = $data['order'] ?? $oldOrder;
 
-        DB::transaction(function () use ($data, $work) {
-            if ($data['order'] != $work->order) {
-                Work::where('order', '>=', $data['order'])
-                    ->where('id', '!=', $work->id)
-                    ->increment('order');
+        DB::transaction(function () use ($data, $work, $oldOrder, $newOrder) {
+            
+            // Csak akkor rendezünk át, ha változott a sorszám
+            if ($newOrder != $oldOrder) {
+                if ($newOrder > $oldOrder) {
+                    // Lefelé mozgatás: a köztes elemeket felfelé (vissza) toljuk
+                    Work::whereBetween('order', [$oldOrder + 1, $newOrder])
+                        ->decrement('order');
+                } else {
+                    // Felfelé mozgatás: a köztes elemeket lefelé (előre) toljuk
+                    Work::whereBetween('order', [$newOrder, $oldOrder - 1])
+                        ->increment('order');
+                }
             }
+
             $work->update($data);
         });
 
@@ -47,8 +62,12 @@ class WorkController extends Controller
     {
         DB::transaction(function () use ($work) {
             $deletedOrder = $work->order;
+            
             $work->delete();
-            Work::where('order', '>', $deletedOrder)->decrement('order');
+
+            // A törölt elem mögötti összes elemet egyel előrébb hozzuk a lyuk betöméséhez
+            Work::where('order', '>', $deletedOrder)
+                ->decrement('order');
         });
 
         return response()->noContent();
