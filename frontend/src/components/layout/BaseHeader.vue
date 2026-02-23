@@ -1,77 +1,79 @@
 <template>
-  <nav class="fixed top-0 left-0 w-full h-16 bg-slate-950 flex justify-between items-center px-5 z-20">
-    <RouterLink :to="{name: 'home'}">
-      <img src="/Header/logo feher.png" alt="Logo" class="h-12">
+  <nav class="fixed top-0 left-0 w-full h-16 bg-slate-950 flex justify-between items-center px-6 z-30 shadow-xl">
+    <RouterLink :to="{ name: 'home' }" class="shrink-0">
+      <img src="/Header/logo feher.png" alt="Logo" class="h-10 md:h-12 hover:scale-105 transition-transform">
     </RouterLink>
 
-    <!-- Linkek (nagy nézet) -->
-    <div class="text-white text-sm hidden lg:flex space-x-7 items-center">
-      <RouterLink :to="{name: 'home'}" class="hover:text-orange-600 transition-colors duration-300">Főoldal</RouterLink>
-      <RouterLink :to="{name: 'sirko'}" class="hover:text-orange-600 transition-colors duration-300">Sírkő</RouterLink>
-      <RouterLink :to="{name: 'epiteszet'}" class="hover:text-orange-600 transition-colors duration-300">Építészet</RouterLink>
-      <RouterLink :to="{name: 'szolgaltatasok'}" class="hover:text-orange-600 transition-colors duration-300">Szolgáltatások</RouterLink>
-      <RouterLink :to="{name: 'ko-anyagminta'}" class="hover:text-orange-600 transition-colors duration-300">Kő anyagminták</RouterLink>
-      <RouterLink :to="{name: 'egyeb-informaciok'}" class="hover:text-orange-600 transition-colors duration-300">Egyéb információk</RouterLink>
-      <RouterLink :to="{name: 'kapcsolat'}" class="hover:text-orange-600 transition-colors duration-300">Kapcsolat</RouterLink>
-      <RouterLink :to="{name: 'ajanlatkeres'}" class="hover:text-orange-600 transition-colors duration-300">Ajánlatkérés</RouterLink>
+    <div class="hidden lg:flex items-center space-x-6">
+      <RouterLink 
+        v-for="link in navLinks" 
+        :key="link.name"
+        :to="{ name: link.routeName }"
+        class="text-white text-sm font-medium hover:text-orange-500 transition-colors duration-300"
+        active-class="text-orange-500"
+      >
+        {{ link.label }}
+      </RouterLink>
     </div>
 
-    <!-- Hamburger (mobil nézet) -->
-    <div class="lg:hidden flex items-center h-full">
-      <div class="hamburgerMenu-container inline-block" :class="{ 'active': menuOpen }"@click="toggleMenu">
-        <div class="bar1 bg-orange-600 w-6 h-0.5 my-1"></div>
-        <div class="bar2 bg-orange-600 w-6 h-0.5 my-1"></div>
-        <div class="bar3 bg-orange-600 w-6 h-0.5 my-1"></div>
-      </div>
-    </div>
+    <button 
+      @click="menuOpen = !menuOpen" 
+      class="lg:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 focus:outline-none z-40"
+      aria-label="Menü"
+    >
+      <span 
+        class="block w-7 h-0.5 bg-orange-600 transition-all duration-300 ease-in-out"
+        :class="menuOpen ? 'rotate-45 translate-y-2' : ''"
+      ></span>
+      <span 
+        class="block w-7 h-0.5 bg-orange-600 transition-all duration-300"
+        :class="menuOpen ? 'opacity-0' : 'opacity-100'"
+      ></span>
+      <span 
+        class="block w-7 h-0.5 bg-orange-600 transition-all duration-300 ease-in-out"
+        :class="menuOpen ? '-rotate-45 -translate-y-2' : ''"
+      ></span>
+    </button>
   </nav>
-  <!-- Hamburger linkek (mobil nézet) -->
-  <div class="fixed lg:hidden top-16 left-0 py-5 space-y-5 bg-slate-950 bg-opacity-70 w-full flex flex-col text-white text-center transform transition-all duration-500 ease-out z-10" :class="{'opacity-100 translate-y-0': menuOpen, 'opacity-0 -translate-y-10 pointer-events-none': !menuOpen}">
-    <RouterLink :to="{name: 'home'}">Főoldal</RouterLink>
-    <RouterLink :to="{name: 'sirko'}">Sírkő</RouterLink>
-    <RouterLink :to="{name: 'epiteszet'}">Építészet</RouterLink>
-    <RouterLink :to="{name: 'szolgaltatasok'}">Szolgáltatások</RouterLink>
-    <RouterLink :to="{name: 'ko-anyagminta'}">Kő anyagminták</RouterLink>
-    <RouterLink :to="{name: 'egyeb-informaciok'}">Egyéb információk</RouterLink>
-    <RouterLink :to="{name: 'kapcsolat'}">Kapcsolat</RouterLink>
-    <RouterLink :to="{name: 'ajanlatkeres'}">Ajánlatkérés</RouterLink>
-  </div>
+
+  <Transition
+    enter-active-class="transition duration-300 ease-out"
+    enter-from-class="opacity-0 -translate-y-full"
+    enter-to-class="opacity-100 translate-y-0"
+    leave-active-class="transition duration-200 ease-in"
+    leave-from-class="opacity-100 translate-y-0"
+    leave-to-class="opacity-0 -translate-y-full"
+  >
+    <div 
+      v-if="menuOpen" 
+      class="fixed inset-0 bg-slate-950/95 z-20 flex flex-col items-center justify-center space-y-8 lg:hidden"
+    >
+      <RouterLink 
+        v-for="link in navLinks" 
+        :key="link.name"
+        :to="{ name: link.routeName }"
+        @click="menuOpen = false"
+        class="text-white text-xl font-light hover:text-orange-500 transition-colors"
+      >
+        {{ link.label }}
+      </RouterLink>
+    </div>
+  </Transition>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      menuOpen: false
-    }
-  },
-  methods: {
-    toggleMenu() {
-      this.menuOpen = !this.menuOpen
-    }
-  }
-}
+<script setup>
+import { ref } from 'vue'
+
+const menuOpen = ref(false)
+
+const navLinks = [
+  { label: 'Főoldal', routeName: 'home' },
+  { label: 'Sírkő', routeName: 'sirko' },
+  { label: 'Építészet', routeName: 'epiteszet' },
+  { label: 'Szolgáltatások', routeName: 'szolgaltatasok' },
+  { label: 'Kő anyagminták', routeName: 'ko-anyagminta' },
+  { label: 'Egyéb információk', routeName: 'egyeb-informaciok' },
+  { label: 'Kapcsolat', routeName: 'kapcsolat' },
+  { label: 'Ajánlatkérés', routeName: 'ajanlatkeres' },
+]
 </script>
-
-<style>
-.hamburgerMenu-container {
-  cursor: pointer;
-}
-
-.bar1, .bar2, .bar3 {
-  width: 35px;
-  height: 5px;
-  margin: 6px 0;
-  transition: 0.4s;
-}
-
-.active .bar1 {
-  transform: translate(0, 11px) rotate(-45deg);
-}
-
-.active .bar2 {opacity: 0;}
-
-.active .bar3 {
-  transform: translate(0, -11px) rotate(45deg);
-}
-</style>
