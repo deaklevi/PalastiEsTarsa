@@ -178,3 +178,12 @@ const showNotification = (text, css) => {
 .fade-enter-active, .fade-leave-active { transition: opacity 0.5s; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
 </style>
+<route lang="json">
+{
+  "name": "ajanlatkeres",
+  "meta": {
+    "title": "Ajánlatkérés – Palásti és Társa Kft.",
+    "description": "Kérjen ajánlatot egyedi síremlékekre, gravírozásra és kőfeldolgozásra a Palásti és Társa Kft.-től."
+  }
+}
+</route>

@@ -116,3 +116,13 @@ p {
   }
 }
 </style>
+
+<route lang="json">
+{
+  "name": "home",
+  "meta": {
+    "title": "Főoldal – Palásti és Társa Kft.",
+    "description": "A Kő – legyen az gránit, márvány vagy mészkő – az életünk! A kőfeldolgozás valamennyi területén megálljuk a helyünket. 1954 óta rengeteg tapasztalatot gyűjtöttünk az egyedi kézműves síremlékek, kripták, emlékművek, szökőkutak és minden egyéb épülethez tartozó kőburkolat, kőtermék készítésében, kerüljön az kültérre vagy beltérre."
+  }
+}
+</route>

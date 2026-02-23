@@ -131,3 +131,13 @@ const faq = `
   </div>
 `
 </script>
+
+<route lang="json">
+{
+  "name": "egyeb-informaciok",
+  "meta": {
+    "title": "Egyéb információk – Palásti és Társa Kft.",
+    "description": "Miért gránit? Amit tudni kell róla: - Vulkáni eredetű természetes kőzet. Természeténél fogva rendkívül kemény, ezért a megmunkálása után felülete örök életű (lásd: egyiptomi obeliszkek). Fizikai tulajdonságait megőrzi, nem vetemedik, nem reped, nem korrodálódik és mérsékelt nedvszívó hatású. Savnak és lúgnak ellenáll. Fent említett okok miatt minden gránitból készült termék örök életű..."
+  }
+}
+</route>
